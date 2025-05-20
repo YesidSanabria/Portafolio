@@ -1,0 +1,49 @@
+/*
+  Estilos para el contenedor de la barra de navegación.
+*/
+.navbar {
+  background-color: #2c3e50; /* Un color de fondo oscuro y elegante */
+  color: white; /* Color del texto */
+  padding: 15px 20px; /* Espaciado interno (vertical y horizontal) */
+  text-align: center; /* Centra el contenido (el título h1) */
+  position: fixed; /* Fija la barra en la parte superior de la ventana gráfica */
+  top: 0; /* Pega la barra al borde superior */
+  left: 0; /* Pega la barra al borde izquierdo */
+  width: 100%; /* Hace que la barra ocupe todo el ancho disponible */
+  z-index: 100; /* Asegura que la barra esté por encima de otros elementos de la página */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Una sombra sutil para darle profundidad */
+}
+
+/*
+  Estilos para el título dentro de la barra de navegación.
+*/
+.navbar h1 {
+  margin: 0; /* Elimina el margen por defecto del h1 */
+  font-size: 1.8em; /* Tamaño de la fuente del título */
+  font-weight: bold; /* Peso de la fuente */
+}
+
+/*
+  Estilos opcionales para futuros enlaces de navegación (descomentar en HTML si se usan)
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1em;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+*/

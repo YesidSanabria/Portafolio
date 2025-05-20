@@ -1,0 +1,103 @@
+/*
+  Contenedor del overlay para la animación de introducción.
+  Cubre toda la pantalla inicialmente y actúa como el fondo azul.
+*/
+.intro-overlay {
+  position: fixed; /* Fijo en la pantalla */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Ancho completo de la ventana */
+  height: 100vh; /* Alto completo de la ventana */
+  background-color: #2c3e50; /* ESTE ES EL COLOR DE FONDO AZUL OSCURO. Puedes cambiarlo. */
+  z-index: 2000; /* Debe estar debajo del título animado, pero encima del contenido principal */
+  opacity: 1; /* Comienza completamente visible */
+  transition: opacity 0.7s ease-out; /* Transición suave para desvanecerse */
+}
+
+/* Clase para activar el desvanecimiento del overlay */
+.intro-overlay.fade-out-overlay {
+  opacity: 0; /* Lo hace invisible */
+  pointer-events: none; /* Permite clics a través del overlay una vez invisible */
+}
+
+/*
+  Estilos para la IMAGEN del título animado y persistente.
+*/
+.intro-title-image {
+  position: fixed; /* Fijo en la pantalla */
+  left: 50%; /* Para centrar horizontalmente usando transform */
+  opacity: 0; /* Comienza invisible para la animación de aparición */
+  transform: translateX(-50%) scale(0.8); /* Centrado horizontalmente y un poco más pequeño inicialmente */
+  z-index: 2010; /* MUY IMPORTANTE: Debe estar POR ENCIMA del .intro-overlay */
+  
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out, top 1.5s ease-in-out, height 1.5s ease-in-out, width 1.5s ease-in-out;
+  
+  height: auto; 
+  width: 250px; /* EJEMPLO: Ancho inicial. ¡AJUSTA ESTO AL TAMAÑO DE TU IMAGEN! */
+  object-fit: contain; 
+}
+
+/* Clase y animación para la aparición de la imagen en el centro */
+.intro-title-image.title-appear {
+  animation: titleImageAppearAnimation 1s ease-out forwards;
+}
+
+@keyframes titleImageAppearAnimation {
+  0% {
+    opacity: 0;
+    height: 120px; /* EJEMPLO: Altura al inicio de la aparición. ¡AJUSTA! */
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    height: 150px; /* EJEMPLO: Altura al final de la aparición. ¡AJUSTA! */
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%) scale(1);
+  }
+}
+
+/* Clase y animación para mover la imagen a su posición final */
+.intro-title-image.title-move-to-final {
+  animation: titleImageMoveToFinalAnimation 1.5s ease-in-out forwards;
+}
+
+@keyframes titleImageMoveToFinalAnimation {
+  0% {
+    opacity: 1;
+    height: 150px; /* EJEMPLO: ¡AJUSTA! */
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%) scale(1);
+  }
+  100% {
+    opacity: 1;
+    height: 80px; /* EJEMPLO: Altura final. ¡AJUSTA! */
+    /* EJEMPLO de cálculo para 'top':
+       Si navbar = 60px de alto, imagen final = 80px de alto.
+       top = 60px - (80px / 2) = 20px.
+    */
+    top: 20px; /* ¡AJUSTA ESTE VALOR CUIDADOSAMENTE! */
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+/* Clase para mantener la imagen en su posición final estable */
+.intro-title-image.title-final-position {
+  opacity: 1;
+  top: 20px;    /* ¡AJUSTA! Debe coincidir con el 100% de la animación anterior */
+  height: 80px; /* ¡AJUSTA! Debe coincidir con el 100% de la animación anterior */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 150; /* Encima de la navbar */
+}
+
+/* Ajustes para asegurar que la navbar y el mapa estén detrás */
+app-navbar {
+  position: relative; 
+  z-index: 100; 
+}
+
+app-mapa {
+  position: relative;
+  z-index: 1; 
+}

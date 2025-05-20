@@ -1,0 +1,27 @@
+/*
+  Estilos para el contenedor principal del mapa.
+*/
+.mapa-container {
+  width: 100%; /* El mapa ocupará el 100% del ancho de su contenedor padre */
+
+  height: 600px; /* ALTURA FIJA*/
+ 
+  position: relative; /* Necesario para posicionar el personaje dentro */
+  
+  /* Ajuste de márgenes:*/
+  margin: 70px 0 20px 0;
+  
+  border-top: 2px solid #333;    /* Borde opcional solo arriba */
+  border-bottom: 2px solid #333; /* Borde opcional solo abajo */
+
+  overflow: hidden; /* Para que el personaje no se salga */
+  background-color: #f0f0f0; /* Color de fondo*/
+}
+
+.mapa-container img {
+  display: block;
+  width: 100%; /* La imagen intentará cubrir el 100% del ancho del contenedor */
+  height: 100%; /* La imagen intentará cubrir el 100% de la altura del contenedor */
+  
+  object-fit: cover; 
+}

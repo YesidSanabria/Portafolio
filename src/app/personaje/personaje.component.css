@@ -1,0 +1,15 @@
+/*
+  Estilos para la imagen del personaje.
+*/
+#personaje {
+  position: absolute; /* Permite posicionar el personaje con coordenadas exactas
+                         dentro de su contenedor padre posicionado relativamente (el mapa). */
+  width: 100px;  /* Ajusta el ancho de tu personaje según la imagen */
+  height: 140px; /* Ajusta la altura de tu personaje según la imagen */
+  bottom: 50px; /* Posición inicial: distancia desde el borde inferior del mapa */
+  left: 50px;   /* Posición inicial: distancia desde el borde izquierdo del mapa */
+  z-index: 10;  /* Asegura que el personaje esté por encima de otros elementos como el mapa de fondo. */
+  transition: left 0.1s linear, bottom 0.1s linear; /* Suaviza el movimiento del personaje */
+  image-rendering: pixelated; /* Opcional: si usas pixel art, esto puede ayudar a mantener los bordes nítidos al escalar */
+  object-fit: contain; /* Asegura que toda la imagen del personaje sea visible sin ser recortada */
+}
