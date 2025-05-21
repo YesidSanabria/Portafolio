@@ -1,0 +1,10 @@
+
+
+
+//// Estructuracion de la experiencia
+
+1. No tanto texto
+2. !!!! Proyectos
+3. Buscar formas de representar sin tanto texto
+4. No mostrar los conocimientos como porcentajes
+5. Mostrar siempre los proyectos funcionales.

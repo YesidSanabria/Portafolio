@@ -1,3 +1,13 @@
 <nav class="navbar">
-  <div>HOLA QUE HACE</div>
-  </nav>
+  <ul class="navbar-links">
+    <li><a href="#sobre-mi" (click)="smoothScrollTo($event, 'sobre-mi')">Sobre Mí</a></li>
+    <li><a href="#experiencia" (click)="smoothScrollTo($event, 'experiencia')">Experiencia</a></li>
+    <li><a href="#proyectos" (click)="smoothScrollTo($event, 'proyectos')">Proyectos</a></li>
+    <li><a href="#tecnologias" (click)="smoothScrollTo($event, 'tecnologias')">Tecnologías</a></li>
+    </ul>
+  <button class="navbar-toggle" (click)="toggleMobileMenu()">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+      <path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z"></path>
+    </svg>
+  </button>
+</nav>

@@ -1,27 +1,84 @@
 /*
-  Estilos para el contenedor principal del mapa.
+  Estilos para el contenedor principal del mapa (la "cámara").
 */
 .mapa-container {
-  width: 100%; /* El mapa ocupará el 100% del ancho de su contenedor padre */
-
-  height: 600px; /* ALTURA FIJA*/
- 
-  position: relative; /* Necesario para posicionar el personaje dentro */
+  width: 100%; 
+  height: 600px; /* ALTURA FIJA de tu "cámara" o viewport. AJUSTA ESTO según tus necesidades. */
+  position: relative; 
+  overflow: hidden;   
   
-  /* Ajuste de márgenes:*/
-  margin: 70px 0 20px 0;
+  /* Eliminamos el margen superior para que se pegue a la navbar */
+  margin: 0 0 20px 0; /* Solo margen inferior, o el que necesites */
+  /* O si no necesitas margen inferior: margin: 0; */
   
-  border-top: 2px solid #333;    /* Borde opcional solo arriba */
-  border-bottom: 2px solid #333; /* Borde opcional solo abajo */
-
-  overflow: hidden; /* Para que el personaje no se salga */
-  background-color: #f0f0f0; /* Color de fondo*/
+  border-top: 2px solid #1a202c;    
+  border-bottom: 2px solid #1a202c; 
+  background-color: #2d3748; 
 }
 
-.mapa-container img {
-  display: block;
-  width: 100%; /* La imagen intentará cubrir el 100% del ancho del contenedor */
-  height: 100%; /* La imagen intentará cubrir el 100% de la altura del contenedor */
+/*
+  Estilos para la imagen GRANDE del mapa que se desplazará (si usas un mapa desplazable)
+  o para la imagen de fondo del mapa si es estática.
+*/
+.mapa-container img#mapa-principal-imagen {
+  position: absolute; 
+  top: 0px;  
+  left: 0px; 
+  width: 100%;
+  height: 1280px; /* ¡LA ALTURA REAL DE TU IMAGEN DE MAPA GRANDE! */
   
-  object-fit: cover; 
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  object-fit: cover;
+  z-index: 1; 
+}
+
+/*
+  Estilos para el botón de scroll hacia abajo.
+*/
+.scroll-down-button {
+  position: absolute; 
+  bottom: 20px;       
+  left: 50%;          
+  transform: translateX(-50%); 
+  background-color: rgba(44, 62, 80, 0.6); 
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3); 
+  border-radius: 50%; 
+  width: 50px;        
+  height: 50px;       
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 30; 
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+.scroll-down-button:hover {
+  background-color: rgba(52, 73, 94, 0.8); 
+  transform: translateX(-50%) scale(1.05); 
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-down-button svg {
+  fill: white; 
+  width: 28px; 
+  height: 28px;
+  animation: bounceArrow 2.5s infinite ease-in-out; 
+}
+
+@keyframes bounceArrow {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-7px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
 }

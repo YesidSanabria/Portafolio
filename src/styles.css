@@ -1,25 +1,22 @@
-/*
-  Estilos para el contenedor principal del mapa.
-*/
-.mapa-container {
-  width: 800px; /* Ajusta el ancho según tu imagen o preferencia */
-  height: 600px; /* Ajusta la altura según tu imagen o preferencia */
-  position: relative; /* Fundamental para posicionar elementos hijos de forma absoluta */
-  margin: 50px auto 20px auto; /* Centra el mapa en la página y añade margen superior para el navbar */
-  border: 2px solid #333; /* Un borde opcional para visualizar el área del mapa */
-  overflow: hidden; /* Evita que el contenido (como el personaje) se salga del contenedor */
-  background-color: #f0f0f0; /* Un color de fondo por si la imagen no carga o tiene transparencias */
+/* src/styles.css */
+body {
+  margin: 0; /* Es buena práctica resetear el margen del body */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define una fuente base para toda la página */
+
+  /* --- FONDO DEGRADADO PARA TODA LA PÁGINA --- */
+  /* Ejemplo: Degradado sutil de arriba (gris muy claro) hacia abajo (blanco) */
+  background: linear-gradient(to bottom, #021A37, #020617);
+
+  /* Asegúrate de que el degradado cubra toda la altura, incluso si el contenido es corto */
+  min-height: 100vh; 
+
+  /* Para que el degradado no se repita si el contenido es más largo que la ventana */
+  background-attachment: fixed; /* Opcional: hace que el degradado sea fijo durante el scroll */
+  background-repeat: no-repeat;
+  background-size: cover; /* Asegura que el degradado cubra, aunque esto es más relevante para imágenes */
 }
 
-/*
-  Estilos para la imagen del mapa dentro del contenedor.
-*/
-.mapa-container img {
-  display: block; /* Elimina cualquier espacio extra debajo de la imagen */
-  width: 100%; /* Hace que la imagen ocupe todo el ancho del contenedor */
-  height: 100%; /* Hace que la imagen ocupe toda la altura del contenedor */
-  object-fit: cover; /* Asegura que la imagen cubra todo el contenedor,
-                       puede recortar partes de la imagen si las proporciones no coinciden.
-                       Puedes probar 'contain' si prefieres ver toda la imagen,
-                       lo que podría dejar espacios vacíos. */
+/* Opcional: Si quieres que el scroll sea más suave en toda la página */
+html {
+  scroll-behavior: smooth;
 }
