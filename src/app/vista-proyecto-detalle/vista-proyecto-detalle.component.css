@@ -1,0 +1,87 @@
+                               /*                                            HEADER                 */
+.backdrop{
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 120px 20px;
+    color: #c9d1d9; /* Texto principal claro */
+    font-family: "Onest Variable", system-ui, sans-serif; /* Tu fuente */
+    display: grid;
+    justify-content: center;
+    min-height: 50vh; /* O la altura que necesites */
+    overflow-x: hidden;
+
+}
+.backdrop .header{
+    width: 750px;
+    display: grid;
+    grid-template-columns: 0.6fr 1fr;
+    position: relative;  
+    height: 177px;
+    gap: 10px;
+}
+.conjutitle{
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr 1fr;
+    gap: 8px;
+    padding: 0px;
+}
+.title{
+  font-size: 1.2rem;
+  color: #2CC9FF;
+  margin-bottom: 0;
+  font-family: "Onest Variable", system-ui, sans-serif; /* Tu fuente */
+}
+.image{
+    width: 266px;
+    height: 177px;
+    border-radius: 12px; 
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.littleimage{
+    width: 12px;
+    height: 12px;
+}
+.limi{
+  list-style-type: none;
+}
+.link{
+    font-size: 1rem;
+    color: #2CC9FF;
+    margin-bottom: 0;
+    font-family: "Onest Variable", system-ui, sans-serif;
+}
+
+.info-fecha-container {
+  display: flex; 
+  align-items: center;
+  gap: 8px;
+}
+.littleimage {
+  width: 12px;
+  height: 12px; 
+  flex-shrink: 0; 
+}
+
+.texto-fecha {
+  margin: 0; 
+}
+                               /*                                       DESC EMPRESA                */
+.fondo                            {
+    background-color: #0F172A;
+    color: #c9d1d9; 
+    padding: 20px 25px;
+    border-radius: 8px;
+    max-width: 750px;
+    width: 100%;
+    margin: 20px auto;
+    border: 1px solid #0F172A; 
+    box-sizing: border-box;
+}
+.text{
+  font-size: 1rem;
+  line-height: 1.65;
+  text-align: left;
+  margin: 0;
+}

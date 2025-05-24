@@ -1,0 +1,105 @@
+<section class="backdrop">
+  <header class="header">
+    <div class="image">
+        <img src="assets/img_proyectos/porject.png" alt="porject" class="profile-image"
+           onerror="this.onerror=null; this.src='https://placehold.co/300x300/0D1117/c9d1d9?text=Tu+Foto';">
+    </div>
+    <div>
+      <div *ngIf="proyectoActual; else noEncontradoOError" class="title">
+      <h1>{{ proyectoActual.titulo }}</h1>
+      </div>
+      <div>
+        <ul class="conjutitle">
+          <div>
+            <li class="limi">
+              <div *ngIf="proyectoActual" class="info-fecha-container"> <img src="assets/img_proyectos/calendar.png" alt="calendar" class="littleimage"
+                  onerror="this.onerror=null; this.src='https://placehold.co/300x300/0D1117/c9d1d9?text=Tu+Foto';">
+                <p *ngIf="proyectoActual.fecha" class="texto-fecha">{{ proyectoActual.fecha }}</p> 
+              </div>
+            </li>
+          </div>
+          <div>
+            <li class="limi">
+              <div *ngIf="proyectoActual" class="info-fecha-container"> <img src="assets/img_proyectos/tag.png" alt="tag" class="littleimage"
+                  onerror="this.onerror=null; this.src='https://placehold.co/300x300/0D1117/c9d1d9?text=Tu+Foto';">
+                <p *ngIf="proyectoActual.desarrollo" class="texto-fecha">{{ proyectoActual.desarrollo }}</p> 
+              </div>
+            </li>
+          </div>
+          <div>
+            <li class="limi">
+              <div *ngIf="proyectoActual" class="info-fecha-container"> <img src="assets/img_proyectos/customer.png" alt="customer" class="littleimage"
+                  onerror="this.onerror=null; this.src='https://placehold.co/300x300/0D1117/c9d1d9?text=Tu+Foto';">
+                <p *ngIf="proyectoActual.tecnologias1" class="texto-fecha">{{ proyectoActual.tecnologias1 }}</p> 
+              </div>
+            </li>
+          </div>
+        </ul>
+        <div class="link">
+          Ir al sitio
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="fondo">
+    <div *ngIf="proyectoActual; else noEncontradoOError">
+    <p *ngIf="proyectoActual.subtitulo" class="text">{{ proyectoActual.subtitulo }}</p>
+    </div>
+  </div>
+  <main>
+    asd
+  </main>
+
+
+
+</section>
+
+
+
+
+<div class="detalle-proyecto-container">
+  <div *ngIf="proyectoActual; else noEncontradoOError">
+    <h1>{{ proyectoActual.titulo }}</h1>
+    <h2 *ngIf="proyectoActual.subtitulo" class="subtitulo-proyecto">{{ proyectoActual.subtitulo }}</h2>
+    <div class="imagen-principal-container" *ngIf="proyectoActual.imagenPrincipal">
+      <img [src]="proyectoActual.imagenPrincipal" [alt]="'Imagen principal de ' + proyectoActual.titulo" class="imagen-principal-proyecto">
+    </div>
+    <div class="descripcion-proyecto">
+        <h3>Descripción Detallada</h3>
+        <p [innerHTML]="descripcionLargaFormateada"></p> </div>
+    <div class="rol-proyecto" *ngIf="proyectoActual.rol">
+        <h3>Mi Rol en el Proyecto</h3>
+        <p>{{ proyectoActual.rol }}</p>
+    </div>
+    <div class="tecnologias-usadas" *ngIf="proyectoActual.tecnologias && proyectoActual.tecnologias.length > 0">
+      <h3>Tecnologías Utilizadas</h3>
+      <div class="tags-container">
+        <span *ngFor="let tech of proyectoActual.tecnologias" class="tag-detalle">{{ tech }}</span>
+      </div>
+    </div>
+    <div class="galeria-proyecto" *ngIf="proyectoActual.imagenesGaleria && proyectoActual.imagenesGaleria.length > 0">
+        <h3>Galería de Imágenes</h3>
+        <div class="imagenes-galeria-container">
+            <img *ngFor="let imgGaleria of proyectoActual.imagenesGaleria" [src]="imgGaleria" alt="Imagen de galería del proyecto {{ proyectoActual.titulo }}" class="imagen-galeria">
+        </div>
+    </div>
+    <div class="enlaces-proyecto">
+      <a *ngIf="proyectoActual.linkDemo" [href]="proyectoActual.linkDemo" target="_blank" rel="noopener noreferrer" class="enlace-proyecto-btn demo">
+        Ver Demo
+      </a>
+      <a *ngIf="proyectoActual.linkRepo" [href]="proyectoActual.linkRepo" target="_blank" rel="noopener noreferrer" class="enlace-proyecto-btn repo">
+        Ver Repositorio
+      </a>
+    </div>
+  </div>
+  <ng-template #noEncontradoOError>
+    <div *ngIf="errorCarga" class="mensaje-error">
+      <h2>Error al Cargar el Proyecto</h2>
+      <p>{{ errorCarga }}</p>
+    </div>
+    <div *ngIf="!proyectoActual && !errorCarga" class="mensaje-cargando">
+        <p>Cargando detalles del proyecto...</p>
+    </div>
+  </ng-template>
+  <a routerLink="/" class="volver-link">Volver a la Página Principal</a>
+</div>
