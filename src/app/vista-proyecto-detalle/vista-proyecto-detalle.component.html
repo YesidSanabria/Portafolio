@@ -1,8 +1,9 @@
 <section class="backdrop">
   <header class="header">
-    <div class="image">
-        <img src="assets/img_proyectos/porject.png" alt="porject" class="profile-image"
-           onerror="this.onerror=null; this.src='https://placehold.co/300x300/0D1117/c9d1d9?text=Tu+Foto';">
+     <div *ngIf="proyectoActual; else noEncontradoOError" class="image">
+        <div *ngIf="proyectoActual.imagenPrincipal">
+      <img [src]="proyectoActual.imagenPrincipal" [alt]="'Imagen principal de ' + proyectoActual.titulo" class="image">
+    </div>
     </div>
     <div>
       <div *ngIf="proyectoActual; else noEncontradoOError" class="title">
@@ -36,63 +37,143 @@
           </div>
         </ul>
         <div class="link">
-          Ir al sitio
+          <div *ngIf="proyectoActual; else noEncontradoOError">
+              <p *ngIf="proyectoActual.advertencia" class="text">{{ proyectoActual.advertencia }}</p>
+            </div>
         </div>
       </div>
     </div>
   </header>
   <div class="fondo">
     <div *ngIf="proyectoActual; else noEncontradoOError">
-    <p *ngIf="proyectoActual.subtitulo" class="text">{{ proyectoActual.subtitulo }}</p>
+    <p *ngIf="proyectoActual.subtitulo" class="text1">{{ proyectoActual.subtitulo }}</p>
     </div>
   </div>
-  <main>
-    asd
-  </main>
-
-
-
-</section>
-
-
-
-
-<div class="detalle-proyecto-container">
-  <div *ngIf="proyectoActual; else noEncontradoOError">
-    <h1>{{ proyectoActual.titulo }}</h1>
-    <h2 *ngIf="proyectoActual.subtitulo" class="subtitulo-proyecto">{{ proyectoActual.subtitulo }}</h2>
-    <div class="imagen-principal-container" *ngIf="proyectoActual.imagenPrincipal">
-      <img [src]="proyectoActual.imagenPrincipal" [alt]="'Imagen principal de ' + proyectoActual.titulo" class="imagen-principal-proyecto">
+  <div>
+    <div *ngIf="proyectoActual; else noEncontradoOError">
+      <p style="margin-bottom: 20px;" *ngIf="proyectoActual.descripcionCorta" class="text1">{{ proyectoActual.descripcionCorta }}</p>
     </div>
-    <div class="descripcion-proyecto">
-        <h3>Descripción Detallada</h3>
-        <p [innerHTML]="descripcionLargaFormateada"></p> </div>
-    <div class="rol-proyecto" *ngIf="proyectoActual.rol">
-        <h3>Mi Rol en el Proyecto</h3>
-        <p>{{ proyectoActual.rol }}</p>
+     <div *ngIf="proyectoActual; else noEncontradoOError">
+      <p style="margin-bottom: 20px;" *ngIf="proyectoActual.descripcionLarga" class="text1">{{ proyectoActual.descripcionLarga }}</p>
     </div>
-    <div class="tecnologias-usadas" *ngIf="proyectoActual.tecnologias && proyectoActual.tecnologias.length > 0">
-      <h3>Tecnologías Utilizadas</h3>
-      <div class="tags-container">
-        <span *ngFor="let tech of proyectoActual.tecnologias" class="tag-detalle">{{ tech }}</span>
+    <div>
+      <h1 class="title1">Funcionalidades</h1>
+    </div>
+    <div *ngIf="proyectoActual; else noEncontradoOError">
+      <p style="margin-bottom: 20px;" *ngIf="proyectoActual.funcionalidades" class="text1">{{ proyectoActual.funcionalidades }}</p>
+    </div>
+    <div style="margin-bottom: 60px;">
+      <li class="limi1"> <div *ngIf="proyectoActual; else noEncontradoOError" class="info-linea">
+                          <p *ngIf="proyectoActual.funcion1" class="flex1">{{ proyectoActual.funcion1 }} <samp *ngIf="proyectoActual.funcion1_1" class="flex2">{{ proyectoActual.funcion1_1 }}</samp></p>
+                        </div>
+      </li>
+      <li class="limi1"> <div *ngIf="proyectoActual; else noEncontradoOError" class="info-linea">
+                          <p *ngIf="proyectoActual.funcion2" class="flex1">{{ proyectoActual.funcion2 }} <span *ngIf="proyectoActual.funcion2_1" class="flex2">{{ proyectoActual.funcion2_1 }}</span></p>                          
+                        </div>
+      </li>
+      <li class="limi1"> <div *ngIf="proyectoActual; else noEncontradoOError" class="info-linea">
+                          <p *ngIf="proyectoActual.funcion3" class="flex1">{{ proyectoActual.funcion3 }} <span *ngIf="proyectoActual.funcion3_1" class="flex2">{{ proyectoActual.funcion3_1 }}</span></p>                          
+                        </div>
+      </li>
+      <li class="limi1"> <div *ngIf="proyectoActual; else noEncontradoOError" class="info-linea">
+                          <p *ngIf="proyectoActual.funcion4" class="flex1">{{ proyectoActual.funcion4 }} <span *ngIf="proyectoActual.funcion4_1" class="flex2">{{ proyectoActual.funcion4_1 }}</span></p>                          
+                        </div>
+      </li>
+      <li class="limi1"> <div *ngIf="proyectoActual; else noEncontradoOError" class="info-linea">
+                          <p *ngIf="proyectoActual.funcion5" class="flex1">{{ proyectoActual.funcion5 }} <span *ngIf="proyectoActual.funcion5_1" class="flex2">{{ proyectoActual.funcion5_1 }}</span></p>                          
+                        </div>
+      </li>
+      <li class="limi1"> <div *ngIf="proyectoActual; else noEncontradoOError" class="info-linea">
+                          <p *ngIf="proyectoActual.funcion6" class="flex1">{{ proyectoActual.funcion6 }} <span *ngIf="proyectoActual.funcion6_1" class="flex2">{{ proyectoActual.funcion6_1 }}</span></p>                          
+                        </div>
+      </li>
+    </div>
+    <div class="sizeimge"> 
+      <div *ngIf="proyectoActual; else noEncontradoOError" class="imagen-grande-wrapper"> 
+      <img *ngIf="proyectoActual.imagen1" 
+         [src]="proyectoActual.imagen1" 
+         [alt]="'Imagen principal de ' + proyectoActual.titulo" 
+         class="image"> 
+      </div>
+
+      <div class="double"> 
+        <div *ngIf="proyectoActual; else noEncontradoOError"> 
+          <img *ngIf="proyectoActual.imagen2"  
+          [src]="proyectoActual.imagen2"  
+          [alt]="'Imagen secundaria 1 de ' + proyectoActual.titulo" 
+              class="image">
+        </div>
+        <div *ngIf="proyectoActual; else noEncontradoOError">
+          <img *ngIf="proyectoActual.imagen3"  
+          [src]="proyectoActual.imagen3" 
+          [alt]="'Imagen secundaria 2 de ' + proyectoActual.titulo" 
+              class="image">
+        </div>
       </div>
     </div>
-    <div class="galeria-proyecto" *ngIf="proyectoActual.imagenesGaleria && proyectoActual.imagenesGaleria.length > 0">
-        <h3>Galería de Imágenes</h3>
-        <div class="imagenes-galeria-container">
-            <img *ngFor="let imgGaleria of proyectoActual.imagenesGaleria" [src]="imgGaleria" alt="Imagen de galería del proyecto {{ proyectoActual.titulo }}" class="imagen-galeria">
-        </div>
+    <div>
+      <h1 class="title1">Tecnologías</h1>
     </div>
-    <div class="enlaces-proyecto">
-      <a *ngIf="proyectoActual.linkDemo" [href]="proyectoActual.linkDemo" target="_blank" rel="noopener noreferrer" class="enlace-proyecto-btn demo">
-        Ver Demo
-      </a>
-      <a *ngIf="proyectoActual.linkRepo" [href]="proyectoActual.linkRepo" target="_blank" rel="noopener noreferrer" class="enlace-proyecto-btn repo">
-        Ver Repositorio
-      </a>
-    </div>
+    <table class="tech-table">
+      <thead>
+        <tr>
+          <th>Tecnología</th>
+          <th>Uso / Implementación</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Tecnología"><div *ngIf="proyectoActual; else noEncontradoOError" >
+                                         <p *ngIf="proyectoActual.tectno1">{{ proyectoActual.tectno1 }}</p>                          
+                                      </div>
+          </td>
+          <td data-label="Uso / Implementación"><div *ngIf="proyectoActual; else noEncontradoOError">
+                                                  <p class="sinmar" *ngIf="proyectoActual.tectno1_1">{{ proyectoActual.tectno1_1 }}</p>                          
+                                                </div>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Tecnología"><div *ngIf="proyectoActual; else noEncontradoOError">
+                                         <p *ngIf="proyectoActual.tectno2">{{ proyectoActual.tectno2 }}</p>                          
+                                      </div>
+          </td>
+          <td data-label="Uso / Implementación"><div *ngIf="proyectoActual; else noEncontradoOError">
+                                                  <p class="sinmar" *ngIf="proyectoActual.tectno2_1">{{ proyectoActual.tectno2_1 }}</p>                          
+                                                </div>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Tecnología"><div *ngIf="proyectoActual; else noEncontradoOError">
+                                         <p  *ngIf="proyectoActual.tectno3">{{ proyectoActual.tectno3 }}</p>                          
+                                      </div>
+          </td>
+          <td data-label="Uso / Implementación"><div *ngIf="proyectoActual; else noEncontradoOError">
+                                                  <p class="sinmar" *ngIf="proyectoActual.tectno3_1">{{ proyectoActual.tectno3_1 }}</p>
+                                                </div>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Tecnología"><div *ngIf="proyectoActual; else noEncontradoOError">
+                                         <p *ngIf="proyectoActual.tectno4">{{ proyectoActual.tectno4 }}</p>                          
+                                      </div>
+          </td>
+          <td data-label="Uso / Implementación"><div *ngIf="proyectoActual; else noEncontradoOError">
+                                                  <p class="sinmar" *ngIf="proyectoActual.tectno4_1">{{ proyectoActual.tectno4_1 }}</p>                          
+                                                </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <ng-template #noEncontradoOError>
+
+
+
+<footer class="fondo1">
+<span>© 2025</span>
+<a class="contacto" href="mailto:yesanabria2@poligran.edu.co">Contacto</a>
+</footer>
+
+<ng-template #noEncontradoOError>
     <div *ngIf="errorCarga" class="mensaje-error">
       <h2>Error al Cargar el Proyecto</h2>
       <p>{{ errorCarga }}</p>
@@ -102,4 +183,7 @@
     </div>
   </ng-template>
   <a routerLink="/" class="volver-link">Volver a la Página Principal</a>
-</div>
+</section>
+
+
+

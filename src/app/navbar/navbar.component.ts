@@ -1,26 +1,50 @@
-import { Component, HostListener,Input  } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router, RouterLink, NavigationEnd } from '@angular/router'; // Importar Router, RouterLink, NavigationEnd
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
   @Input() showLinks: boolean = false;
   isMobileMenuOpen: boolean = false;
+  private currentUrl: string = '';
 
-  constructor() { }
+  constructor(private router: Router) {
+    // Suscribirse a eventos de navegación para saber la URL actual
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: any) => { // Usar 'any' o un tipo más específico
+      this.currentUrl = event.urlAfterRedirects;
+    });
+  }
 
-  smoothScrollTo(event: MouseEvent, sectionId: string): void {
-    event.preventDefault();
-    
-    // Ocultar el título animado principal si aún es visible y el usuario navega
-    const titleFadeEvent = new CustomEvent('requestTitleFadeOut');
-    window.dispatchEvent(titleFadeEvent);
+  handleNavClick(event: MouseEvent, fragment: string): void {
+    event.preventDefault(); // Prevenir siempre el comportamiento por defecto del ancla
 
+    // Disparar evento para que AppComponent sepa que se ha hecho scroll/navegación
+    // y pueda ocultar el título animado si es necesario y aún está visible.
+    window.dispatchEvent(new CustomEvent('requestTitleFadeOut'));
+
+    if (this.currentUrl === '/' || this.currentUrl.startsWith('/#')) {
+      // Ya estamos en la página principal, solo hacer scroll suave
+      this.smoothScrollToSection(fragment);
+    } else {
+      // No estamos en la página principal, navegar a la home y luego hacer scroll
+      this.router.navigate(['/'], { fragment: fragment });
+    }
+
+    if (this.isMobileMenuOpen) {
+      this.isMobileMenuOpen = false;
+    }
+  }
+
+  smoothScrollToSection(sectionId: string): void {
     const section = document.getElementById(sectionId);
     if (section) {
       const navbarHeight = document.querySelector('.navbar')?.clientHeight || 60;
@@ -31,14 +55,11 @@ export class NavbarComponent {
         behavior: 'smooth'
       });
     }
-    if (this.isMobileMenuOpen) {
-      this.isMobileMenuOpen = false;
-    }
   }
 
   scrollToTop(event: MouseEvent): void {
     event.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    this.router.navigate(['/']); // Siempre navega a la ruta raíz
     if (this.isMobileMenuOpen) {
       this.isMobileMenuOpen = false;
     }
@@ -46,27 +67,24 @@ export class NavbarComponent {
 
   toggleMobileMenu(): void {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
-    // Podrías añadir una clase al body para prevenir scroll cuando el menú está abierto
-    // document.body.classList.toggle('no-scroll', this.isMobileMenuOpen);
   }
 
-  
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: Event): void {
     const target = event.target as HTMLElement;
     const navbarToggle = document.querySelector('.navbar-toggle');
-    const navbarLinks = document.querySelector('.navbar-links');
+    const navbarLinksContainer = document.querySelector('.navbar-links');
 
     if (this.isMobileMenuOpen && 
         navbarToggle && !navbarToggle.contains(target) && 
-        navbarLinks && !navbarLinks.contains(target)) {
+        navbarLinksContainer && !navbarLinksContainer.contains(target)) {
       this.isMobileMenuOpen = false;
     }
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(event: Event): void {
-    if (window.innerWidth > 768 && this.isMobileMenuOpen) { // 768px es un breakpoint común para móviles
+    if (window.innerWidth > 768 && this.isMobileMenuOpen) { 
       this.isMobileMenuOpen = false;
     }
   }
