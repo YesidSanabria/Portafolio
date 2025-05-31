@@ -1,28 +1,26 @@
 /* Estilos base de la navbar (los que ya tenías o similares) */
 .navbar {
-  background-color: #2c3e50; /* Color de fondo oscuro */
+  opacity: 0.85;
+  background: linear-gradient(to bottom, #020617, #021A37);
   color: white;
-  padding: 0 500px; /* Ajustar padding para acomodar el título y los enlaces */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 100; /* Asegurar que esté por encima del contenido pero debajo del título animado inicial */
+  z-index: 100;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   display: flex;
-  justify-content: space-between; /* Para separar el brand/título de los links */
+  justify-content: space-between;
   align-items: center;
-  height: 60px; /* Altura fija para la navbar, ajusta según necesites */
+  height: 60px; 
 }
 
-.navbar-brand {
-  /* Estilos para el contenedor del título/logo de la navbar si es necesario */
-}
+
 
 .navbar-title-link {
   color: white;
   text-decoration: none;
-  font-size: 1.6em; /* Tamaño del título en la navbar */
+  font-size: 1.6em;
   font-weight: bold;
 }
 
@@ -30,7 +28,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex; /* Por defecto en línea para escritorio */
+  display: flex;
   align-items: center;
 }
 

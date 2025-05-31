@@ -236,3 +236,116 @@
   color: white;
   font-size: 0.9rem;
 }
+
+/* Estilos Responsive Media Queries Agregados */
+
+@media screen and (max-width: 768px) {
+    .backdrop {
+        padding: 80px 15px; /* Padding ajustado */
+    }
+
+    .backdrop .header {
+        width: 100%; /* Ancho completo */
+        grid-template-columns: 1fr; /* Apila los elementos del header */
+        height: auto; /* Altura automática */
+        gap: 20px; /* Gap ajustado para elementos apilados */
+    }
+
+    .conjutitle {
+        grid-template-columns: 1fr; /* Apila los elementos del título */
+        /* text-align: center; Podrías centrar el texto si lo deseas */
+    }
+
+    .title {
+        font-size: 1.1rem; /* Reduce ligeramente el tamaño de fuente si es necesario */
+    }
+
+    .fondo {
+        padding: 15px 20px; /* Padding ajustado */
+    }
+
+    .title1 {
+        font-size: 1.4rem; /* Reduce ligeramente el tamaño de fuente */
+    }
+
+    .double {
+        grid-template-columns: 1fr; /* Apila imágenes en el contenedor .double */
+    }
+
+    .fondo1 {
+        grid-template-columns: 1fr; /* Apila elementos en .fondo1 */
+        gap: 20px; /* Reduce significativamente el gap */
+        padding: 15px;
+    }
+
+    .fondo1 .contacto {
+        font-size: 0.85rem; /* Ajusta el tamaño de fuente para pantallas más pequeñas */
+    }
+
+    .info-linea {
+        gap: 3px; /* Reduce el gap en info-linea */
+        /* Considera flex-direction: column; si los elementos necesitan apilarse */
+    }
+    .info-linea .flex1,
+    .info-linea .flex2 {
+        font-size: 1rem; /* Ajusta el tamaño de fuente */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .backdrop {
+        padding: 40px 10px; /* Reduce más el padding para móviles pequeños */
+    }
+
+    .backdrop .header {
+        gap: 15px; /* Ajusta más el gap */
+    }
+
+    .title {
+        font-size: 1rem; /* Reduce más el tamaño de fuente */
+    }
+    .link {
+        font-size: 0.9rem; /* Reduce tamaño de fuente para enlaces */
+    }
+
+    .fondo {
+        padding: 10px 15px; /* Padding ajustado para móviles */
+    }
+
+    .text, .text1 {
+        font-size: 0.9rem; /* Ajusta el tamaño del texto base */
+    }
+
+    .title1 {
+        font-size: 1.2rem; /* Reduce más el tamaño de fuente */
+        margin-bottom: 15px;
+    }
+
+    .indi {
+        font-size: 1rem; /* Ajusta tamaño de fuente */
+    }
+
+    .info-linea .flex1,
+    .info-linea .flex2 {
+        font-size: 0.9rem; /* Ajusta más el tamaño de fuente */
+    }
+    
+    .tech-table th { /* Ajustes adicionales para la tabla en móviles pequeños */
+        font-size: 1rem;
+    }
+    .tech-table td {
+        padding-left: 40%; /* Ajusta el padding para la pseudo-etiqueta en la tabla adaptable */
+        font-size: 0.9rem;
+    }
+    .tech-table td[data-label="Tecnología"] { /* Estilo específico para celdas de tecnología */
+        font-size: 0.95rem; /* Un poco más grande para destacar */
+    }
+
+    .fondo1 {
+        gap: 15px; /* Reduce más el gap */
+        padding: 10px;
+    }
+    .fondo1 .contacto {
+        font-size: 0.8rem; /* Tamaño de fuente final para contacto */
+    }
+}

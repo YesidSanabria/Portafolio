@@ -2,12 +2,6 @@
   <ul class="navbar-links" 
       [ngClass]="{'mobile-menu-open': isMobileMenuOpen}"
       [class.links-visible]="showLinks">
-    <!-- 
-      AQUÍ ESTÁN LOS CAMBIOS IMPORTANTES:
-      Asegúrate de que (click) llame a handleNavClick con DOS argumentos: $event y el string del fragmento.
-      El href es solo para fallback o semántica, la navegación real la maneja el routerLink
-      y el (click) ahora maneja la lógica de si hacer scroll o navegar.
-    -->
     <li><a href="#sobre-mi" (click)="handleNavClick($event, 'sobre-mi')">Sobre Mí</a></li>
     <li><a href="#experiencia" (click)="handleNavClick($event, 'experiencia')">Experiencia</a></li>
     <li><a href="#proyectos" (click)="handleNavClick($event, 'proyectos')">Proyectos</a></li>

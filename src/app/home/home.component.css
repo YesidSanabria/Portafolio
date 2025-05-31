@@ -1,3 +1,274 @@
+/* Estilos existentes para la intro y el overlay negro */
+.intro-title-image {
+  /* ... tus estilos ... */
+  position: fixed; /* Ejemplo */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10010; /* Encima del overlay de intro */
+  opacity: 0;
+}
+
+.intro-title-image.title-appear {
+  animation: titleAppearAnim 2s ease-out forwards;
+}
+
+.intro-title-image.title-move-to-final {
+  animation: titleMoveAnim 2s ease-in-out forwards;
+}
+
+.intro-title-image.title-final-position {
+  /* Estilos para la posición final, ej. en la navbar */
+  top: 10px; /* Ajusta */
+  left: 20px; /* Ajusta */
+  transform: translate(0, 0) scale(0.5); /* Ejemplo de escala y posición */
+  opacity: 1;
+}
+
+@keyframes titleAppearAnim {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes titleMoveAnim {
+  0% { transform: translate(-50%, -50%) scale(1); top: 50%; left: 50%; }
+  100% { transform: translate(0, 0) scale(0.5); top: 10px; left: 20px; } /* Ajusta a tu posición final deseada */
+}
+
+.intro-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0D1117; /* O tu color de fondo de intro */
+  z-index: 10005; /* Debajo del título animado pero encima del contenido */
+  opacity: 1;
+  transition: opacity 1s ease-out;
+}
+
+.intro-overlay.fade-out-overlay {
+  opacity: 0;
+}
+
+
+/* Contenedor para el área que alterna entre juego y escena PC */
+.area-interactiva-principal {
+  width: 100%; /* O el ancho que definas para tu zona de juego/mapa */
+  height: 600px; /* IMPORTANTE: Debe ser la misma altura que .game-viewport-area */
+  position: relative; /* Para que los hijos (juego o escena PC) se posicionen bien si es necesario */
+  margin: 0 auto; /* Ejemplo para centrar si tiene un ancho menor al 100% */
+  /* background-color: #f0f0f0; */ /* Color de fondo de prueba si es necesario */
+  overflow: hidden; /* Para evitar desbordamientos inesperados */
+}
+
+/* Estilo para el contenedor del área del juego */
+.game-viewport-area {
+  width: 100%;
+  height: 100%; /* Ocupa la altura de .area-interactiva-principal */
+  overflow: hidden;
+  /* background-color: lightblue; */ /* Color de prueba */
+}
+
+/* Capa de Transición a Negro (sigue siendo pantalla completa) */
+.transicion-negra-overlay {
+  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+  background-color: black; opacity: 0; visibility: hidden;
+  z-index: 10000; /* Por encima de todo temporalmente */
+  transition: opacity 0.5s ease-in-out, visibility 0s linear 0.5s;
+}
+.transicion-negra-overlay.visible {
+  opacity: 1; visibility: visible;
+  transition: opacity 0.5s ease-in-out, visibility 0s linear 0s;
+}
+
+/* --- ESTILOS PARA LA ESCENA DEL PC (REEMPLAZANDO EL MAPA) --- */
+/* Contenedor para el área que alterna entre juego y escena PC */
+.area-interactiva-principal {
+  width: 100%; 
+  height: 600px; 
+  position: relative; 
+  margin: 0 auto; 
+  overflow: hidden; 
+}
+
+/* Contenedor del área del juego */
+.game-viewport-area {
+  width: 100%;
+  height: 100%; 
+  overflow: hidden;
+}
+.escena-pc-reemplazo-mapa {
+  width: 100%;
+  height: 100%; 
+  position: relative; /* Padre para el modal overlay */
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  opacity: 0; 
+  visibility: hidden;
+  background-color: #101520; 
+}
+.escena-pc-reemplazo-mapa.visible { opacity: 1; visibility: visible; transition: opacity 0.7s ease-in-out 0.3s; }
+.escritorio-pixel-imagen-fondo { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
+
+.pc-screen-interactive {
+  position: absolute; 
+  top: 25%;    /* AJUSTA ESTO */
+  left: 30.5%;   /* AJUSTA ESTO */
+  width: 37%;  /* AJUSTA ESTO */
+  height: 45%; /* AJUSTA ESTO */
+  box-sizing: border-box; 
+  z-index: 2; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  padding: 10px; 
+  overflow: hidden; 
+  border-radius: 2px; 
+}
+
+.boton-en-pantalla-pc {
+  background-color: #F8DB53; 
+  color: #003300; 
+  border: 1px solid #F8DB53; 
+  padding: 8px 15px; 
+  font-family: 'Press Start 2P', cursive, 'Courier New', Courier, monospace; 
+  font-size: clamp(0.6em, 1.5vw, 0.8em); 
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  border-radius: 3px;
+  box-shadow: 0 0 3px #ffffff, 0 0 6px #fbfdfb inset; 
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.8);
+  transition: all 0.3s ease-out;
+  z-index: 5; 
+}
+.boton-en-pantalla-pc.visible { 
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+.boton-en-pantalla-pc:hover {
+  background: linear-gradient(to bottom, #021A37, #020617);
+  color: #ffffff;
+  box-shadow: 0 0 6px #00b7ff, 0 0 10px #00b7ff inset, 0 0 12px #00b7ff;
+  transform: scale(1.05);
+}
+.boton-en-pantalla-pc:active {
+  transform: scale(0.95);
+}
+
+/* --- ESTILOS MODIFICADOS PARA EL MODAL CONFINADO --- */
+/* Overlay del Modal de Navegación DENTRO de .escena-pc-reemplazo-mapa */
+/* Overlay del Modal de Navegación DENTRO de .pc-screen-interactive */
+.modal-navegacion-on-screen-overlay {
+  position: absolute; /* Relativo a .pc-screen-interactive */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10; /* Encima del botón en la pantalla del PC */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-out, visibility 0s linear 0.3s;
+  padding: 5px; /* Pequeño padding para que el contenido no toque los bordes de la pantalla */
+  box-sizing: border-box;
+}
+.modal-navegacion-on-screen-overlay.visible { 
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease-out, visibility 0s linear 0s;
+}
+
+/* Contenido del Modal de Navegación */
+.modal-navegacion-on-screen-contenido {
+    background: linear-gradient(to bottom, #021A37, #020617);
+  padding: 15px; /* Ajustado */
+  border-radius: 3px; /* Menos redondeo para aspecto más técnico */
+  border: 1px solid #00b7ff; 
+  box-shadow: 0 0 8px rgba(0, 140, 255, 0.4), 0 0 12px rgba(0, 140, 255, 0.4) inset;
+  color: #00b7ff; 
+  font-family: 'Courier New', Courier, monospace;
+  width: 95%; 
+  max-width: 320px; 
+  max-height: 95%; 
+  overflow-y: auto; 
+  text-align: center;
+  position: relative; 
+  transform: scale(0.95);
+  opacity: 0;
+}
+.modal-navegacion-on-screen-overlay.visible .modal-navegacion-on-screen-contenido {
+  transform: scale(1);
+  opacity: 1;
+  transition: transform 0.25s cubic-bezier(0.18, 0.89, 0.32, 1.28) 0.05s, opacity 0.2s ease-out 0.05s;
+}
+
+/* Botón de cerrar modal */
+.modal-cerrar-boton {
+  position: absolute;
+  top: 3px;    
+  right: 5px; 
+  background: none;
+  border: none;
+  color: #8DDDD5;
+  font-size: 18px; 
+  cursor: pointer;
+  padding: 2px;
+}
+.modal-cerrar-boton:hover {
+  color: #8DDDD5; /* Más brillante al pasar el ratón */
+}
+
+/* Título del modal */
+.modal-navegacion-on-screen-contenido h2 {
+  margin-top: 0;
+  margin-bottom: 12px; 
+  font-size: 1.1em;   
+  text-transform: uppercase;
+  border-bottom: 1px dashed #8DDDD5;
+  padding-bottom: 5px;
+}
+
+/* Lista de opciones en el modal */
+.opciones-navegacion-modal {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.opciones-navegacion-modal li {
+  margin-bottom: 8px; 
+}
+.opciones-navegacion-modal li a {
+  display: block;
+  padding: 7px 10px; 
+  background-color: rgba(0, 50, 0, 0.3); /* Fondo sutil para los botones */
+  color: #f9f6f6;
+  border: 1px solid #2F83BD; 
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all 0.15s ease-in-out;
+  font-size: 0.85em; 
+}
+.opciones-navegacion-modal li a:hover {
+  background-color: #F0C130;
+  color: #000000; 
+  border-color: #F0C130;
+  transform: scale(1.03); 
+  box-shadow: 0 0 4px #C1EFE8;
+}
+.opciones-navegacion-modal li a:active {
+  transform: scale(0.97);
+}
+
+
 .intro-overlay {
   position: fixed; /* Fijo en la pantalla */
   position: fixed;
@@ -813,8 +1084,193 @@ app-mapa {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media (min-width: 1024px) {
-  .project-cards-container {
 
-  }
+@media screen and (max-width: 768px) {
+    .intro-title-image {
+        width: 200px; /* Reducir ancho de imagen de intro */
+    }
+    .intro-title-image.title-final-position {
+        height: 70px; /* Ajustar altura final */
+        top: 15px;    /* Ajustar posición final superior */
+    }
+
+    .grid { /* Para la línea de tiempo de experiencia */
+        grid-template-columns: 1fr;
+        gap: 20px; 
+    }
+    .box {
+        height: auto; /* Permitir que la altura se ajuste al contenido */
+        margin-bottom: 30px; 
+        /* La posición de ::before y ::after (línea de tiempo) se mantiene relativa al box,
+           lo que debería funcionar bien en una sola columna si el box tiene suficiente espacio
+           o si la página tiene padding general. */
+    }
+
+    .container { /* Para las tarjetas de tecnología */
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .article {
+        width: 100%; 
+        height: auto; 
+        padding: 20px;
+    }
+    .textarticle {
+        font-size: 1.5rem;
+    }
+    /* .article .ulcontent se mantiene con 3 columnas por defecto, se ajustará en 480px si es necesario */
+
+    .fondo1 { 
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Ajustes de fuente generales para 768px */
+    .titulop, .titulo {
+        font-size: 1.8rem;
+    }
+    .about-text h1 .experiencia {
+        font-size: 1.8rem;
+    }
+    .about-text .about-paragraph .text-experiencia {
+        font-size: 1.3rem;
+    }
+    .section-experiencia2 .descrip { /* Asegurándose que la clase es .descrip, no .experience .descrip */
+        font-size: 1rem; 
+    }
+     .experience .text-experiencia { /* Esta es para el listado .experience */
+        font-size: 1.3rem;
+    }
+    .experience .parrafosinespacio .text-subparrafo {
+        font-size: 1.2rem;
+    }
+
+    .project-title {
+        font-size: 1.2em;
+    }
+    .project-description {
+        font-size: 0.85em;
+    }
+    .tag {
+        font-size: 0.7em;
+    }
+
+    .contact-button {
+        padding: 8px 15px;
+        font-size: 0.85em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .intro-title-image {
+        width: 150px; 
+    }
+    .intro-title-image.title-final-position {
+        height: 60px; 
+        top: 10px;    
+    }
+
+    .page-content-wrapper {
+        padding-top: 50px; /* Asumiendo que la altura de la navbar podría reducirse a 50px */
+    }
+
+    .sobremi {
+        padding: 0 15px;
+        min-height: auto; /* Permitir que la altura se ajuste al contenido */
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .titulop, .titulo {
+        font-size: 1.5rem;
+        margin-bottom: 25px;
+    }
+     .about-text h1 .experiencia {
+        font-size: 1.5rem;
+    }
+    .about-text .about-paragraph {
+        font-size: 0.95rem; /* Ajuste para mejor lectura */
+        line-height: 1.6;
+    }
+    .about-text .about-paragraph .text-experiencia {
+        font-size: 1.1rem;
+    }
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .Btn {
+        width: 100px;
+        height: 34px;
+        font-size: 0.8rem; 
+        gap: 6px;
+    }
+    .Btn .svgIcon { 
+        width: 12px;
+    }
+
+    .section-experiencia2 .descrip {
+        font-size: 0.9rem;
+    }
+     .experience .text-experiencia {
+        font-size: 1.1rem;
+    }
+    .experience .parrafosinespacio .text-subparrafo {
+        font-size: 1rem;
+    }
+
+    .article .ulcontent {
+        grid-template-columns: repeat(2, 1fr); /* Dos logos por fila */
+        gap: 15px;
+    }
+    .article .ulcontent > li {
+        min-height: 70px; 
+    }
+    .logo-tecnologia {
+        max-height: 35px; 
+    }
+    .nombre-tecnologia {
+        font-size: 0.7rem;
+    }
+    .textarticle {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+    .article {
+        padding: 15px;
+    }
+    .container { /* Para el contenedor de .article en pantallas pequeñas */
+        gap: 15px;
+    }
+
+    .project-title {
+        font-size: 1.1em;
+    }
+    .project-description {
+        font-size: 0.8em;
+        line-height: 1.5;
+    }
+    .project-card-content {
+        padding: 15px;
+    }
+    .tag {
+        padding: 3px 8px;
+        font-size: 0.65em;
+    }
+
+    .portfolio-section { /* Reducir padding general de secciones */
+        padding: 60px 15px;
+    }
+
+    .contact-links {
+        margin-top: 25px;
+        gap: 10px;
+    }
+    .contact-button {
+        padding: 8px 12px;
+        font-size: 0.8em;
+    }
+    .contact-icon {
+        margin-right: 6px;
+    }
 }
