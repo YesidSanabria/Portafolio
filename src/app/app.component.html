@@ -1,15 +1,5 @@
-<img src="assets/titulo-animado.png" alt="Título del Portafolio"
-     class="intro-title-image"
-     *ngIf="showAnimatedTitle"
-     [class.title-appear]="introState === 'titleAppearing'"
-     [class.title-move-to-final]="introState === 'titleMovingToFinal'"
-     [class.title-final-position]="introState === 'titleAtFinalPosition'" />
+<app-navbar [showLinks]="showNavbarLinks"></app-navbar>
 
-<div class="intro-overlay"
-     *ngIf="showIntroOverlay"
-     [class.fade-out-overlay]="isOverlayFadingOut"> </div>
-
-<app-navbar></app-navbar>
-<app-mapa>
-  <app-personaje></app-personaje>
-</app-mapa>
+<main class="page-content-wrapper">
+  <router-outlet></router-outlet>
+</main>

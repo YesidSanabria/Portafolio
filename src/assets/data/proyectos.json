@@ -1,0 +1,59 @@
+[
+  {
+    "id": "GeneracionXXI",
+    "advertencia": "Por políticas de la empresa, no se puede acceder directamente a la plataforma, ya que se usan datos personales",
+    "fecha": "2022-12-20",
+    "desarrollo": "Fullstack",
+    "tecnologias1": "Python, HTML, CSS, FireBase",
+    "titulo": "Control de Datos Personales",
+    "subtitulo": "Claro Colombia se destaca como una de las principales empresas de telecomunicaciones, tras una campaña, los directivos deciden hacer un cambio de la formación de profesionales, a partir de alli se planeo la estrategia Generacion XXI, área de practicantes universitarios listos para trabajar, donde se parte para una plataforma web.",
+    "descripcionCorta": "El quipo Generacion XXI responsables por la creación, adaptación y lanzamineto del aplicativo, desarrollo todo el sitio web teniendo en cuenta las primeras necesidades del área de recursos humanos, dando a conocer la segmentacion de estudiantes por carrera en el programa, mnejorando así el proceso de ingreso de los practicantes a la organización, aplicando la identidad de marca en cuanto a los colores de la compañia y aplicando diseños par una apariencia profesional.",
+    "descripcionLarga": "El proyecto esta construido bajo librerias Python, entre ellas Flask, la comunicación con el backend es mediante tecnologias API, todo el serivicio frontend fue desarrollado con HTML, CSS y javascript. Para el enrutamiendo de bases de datos se implementó Firebase, servicios de analitica gracias a los servicios de Goolge Analitics",
+    "funcionalidades" : "Entre las características principales destaca el diseño de la plataforma permitiendo al usuario tener un flujo sencillo gracias a:",
+    "funcion1": "Autenticación",
+    "funcion1_1": ": Sistema que permite al usuario crear una nueva cuenta o inciar sesión con una cuenta existente. La validación de usuario es mediante Firebase.",
+    "funcion2": "Llamadas a la acción (CTA)",
+    "funcion2_1":": Incluye múltiples llamadas a la acción (CTA) estratégicamente ubicadas para guiar a los usuarios hacia acciones específicas.",
+    "funcion3": "Secciones Interactivas",
+    "funcion3_1":": Incluye secciones interactivas, como carruseles de imágenes, servicios de busqueda y graficas animadas para proporcionar una experiencia envolvente. ",
+    "funcion4": "Navegación Intuitiva",
+    "funcion4_1":": Diseña una navegación clara y fácil de usar que permia a los usuarios encontrar rápidamente la información que están buscando y navegar sin problemas por el sitio.",
+    "funcion5": "Analiticas",
+    "funcion5_1":": Interfaz que permite al administrador tener un control mas personalizado sobre los datos de cada practicante, y sus funciones en la empresa",
+    "funcion6": "Calificación",
+    "funcion6_1": "Incluye la acción para la culminacion de la practica de cada practicante, donde el empleador califica al practicante para que la universidad pueda consultar el rendimiento, proyectos y calificación de este mismo.",
+    "rol": "Desarrollador Fullstak",
+    "imagenPrincipal": "assets/img_proyectos/geracionp.jpg",
+    "imagen1": "assets/img_proyectos/genera1.jpg",
+    "imagen2":  "assets/img_proyectos/genera2.jpg",
+    "imagen3":  "assets/img_proyectos/genera3.jpg",
+    "tecnologias": ["NextJS", "ReactJS", "SASS", "JavaScript", "HTML5", "API REST"],
+    "linkDemo": "https://www.colraices.com/",
+    "linkRepo": "https://github.com/tuUsuario/colraices-repo",
+
+    "tectno1": "Python",
+    "tectno1_1": "Se emplearon funcionalidades y optimización para mejorar el rendimiento y la visibilidad.",
+    "tectno2": "Pandas",
+    "tectno2_1": "Para la manipulación análisis de datos, facilitando la creación de deagramas para el administrador.",
+    "tectno3": "Flask",
+    "tectno3_1": "Se usó para los servicios indispensables web API.",
+    "tectno4": "API",
+    "tectno4_1": "Consumo de APIs de servicios externos para la visualización de contenido dinámico."
+  },
+  {
+    "id": "Antojos",
+    "titulo": "Momentum Generative App",
+    "subtitulo": "Aplicación de Marketing con IA",
+    "descripcionCorta": "Desarrollo full-stack para una agencia de marketing digital.",
+    "descripcionLarga": "Creación de una aplicación web interna para Agencia Momentum que utiliza IA para generar ideas de campañas. Desarrollé tanto el backend con NodeJS y Express como el frontend con React. La base de datos utilizada fue MongoDB para flexibilidad en el almacenamiento de datos generados.",
+    "rol": "Desarrollador Full-Stack",
+    "imagenPrincipal": "assets/img_proyectos/personaje-base.png",
+    "imagenesGaleria": [
+      "assets/img_proyectos/personaje-base.png"
+    ],
+    "tecnologias": ["NodeJS", "Express.js", "ReactJS", "SASS", "MongoDB", "JWT"],
+    "linkDemo": null, 
+    "linkRepo": "https://github.com/tuUsuario/momentum-app-repo"
+  }
+
+]

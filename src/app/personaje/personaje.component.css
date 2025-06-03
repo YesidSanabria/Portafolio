@@ -4,12 +4,41 @@
 #personaje {
   position: absolute; /* Permite posicionar el personaje con coordenadas exactas
                          dentro de su contenedor padre posicionado relativamente (el mapa). */
-  width: 100px;  /* Ajusta el ancho de tu personaje según la imagen */
-  height: 140px; /* Ajusta la altura de tu personaje según la imagen */
+  width: 200px;  /* Ajusta el ancho de tu personaje según la imagen */
+  height: 200px; /* Ajusta la altura de tu personaje según la imagen */
   bottom: 50px; /* Posición inicial: distancia desde el borde inferior del mapa */
   left: 50px;   /* Posición inicial: distancia desde el borde izquierdo del mapa */
   z-index: 10;  /* Asegura que el personaje esté por encima de otros elementos como el mapa de fondo. */
   transition: left 0.1s linear, bottom 0.1s linear; /* Suaviza el movimiento del personaje */
   image-rendering: pixelated; /* Opcional: si usas pixel art, esto puede ayudar a mantener los bordes nítidos al escalar */
   object-fit: contain; /* Asegura que toda la imagen del personaje sea visible sin ser recortada */
+}
+
+
+/* Estilos para el cuadro de depuración de coordenadas */
+.debug-coordenadas {
+  position: fixed; /* Se queda fijo en la pantalla */
+  bottom: 10px;    /* A 10px del borde inferior */
+  left: 10px;      /* A 10px del borde izquierdo */
+  background-color: rgba(0, 0, 0, 0.75); /* Fondo oscuro semitransparente */
+  color: #00ff00; /* Texto verde fosforescente */
+  padding: 10px;
+  border: 1px solid #00ff00; /* Borde verde */
+  border-radius: 5px; /* Esquinas redondeadas */
+  font-family: monospace; /* Fuente monoespaciada para números */
+  font-size: 12px;      /* Tamaño de fuente pequeño */
+  z-index: 3000; /* Muy alto para que siempre esté visible encima de todo */
+  opacity: 0.9;    /* Ligera transparencia */
+}
+
+.debug-coordenadas h4 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  color: #00ff00; /* Mismo color que el texto */
+  border-bottom: 1px solid #00cc00; /* Línea divisoria */
+  padding-bottom: 3px;
+}
+
+.debug-coordenadas p {
+  margin: 3px 0; /* Espaciado entre las líneas de coordenadas */
 }

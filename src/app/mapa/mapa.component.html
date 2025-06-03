@@ -1,5 +1,18 @@
-<div class="mapa-container">
-  <img src="assets/mapa-base.jpg" alt="Mapa del Portafolio">
+<div class="mapa-container"> <img id="mapa-principal-imagen" src="assets/mapa-base1.png" alt="Mapa del Portafolio"> <app-personaje (entradaEnPuertaDetectada)="onPersonajeEntroEnPuertaLocal()"></app-personaje>
 
-  <ng-content></ng-content>
+  <!-- El <ng-content></ng-content> que tenías:
+       Si estabas usando <ng-content> para proyectar <app-personaje> desde HomeComponent (o similar)
+       hacia aquí, entonces ya no lo necesitas porque estamos declarando <app-personaje> directamente.
+       Si <ng-content> era para OTRO contenido diferente al personaje, puedes dejarlo.
+       Por simplicidad, si el personaje era el único contenido proyectado, puedes quitar <ng-content>.
+  -->
+  <button
+    class="scroll-down-button"
+    (click)="scrollToAboutMe()"
+    title="Ver más sobre mí"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32px" height="32px">
+      <path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path>
+    </svg>
+  </button>
 </div>

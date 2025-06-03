@@ -1,49 +1,127 @@
-/*
-  Estilos para el contenedor de la barra de navegación.
-*/
+/* Estilos base de la navbar (los que ya tenías o similares) */
 .navbar {
-  background-color: #2c3e50; /* Un color de fondo oscuro y elegante */
-  color: white; /* Color del texto */
-  padding: 15px 20px; /* Espaciado interno (vertical y horizontal) */
-  text-align: center; /* Centra el contenido (el título h1) */
-  position: fixed; /* Fija la barra en la parte superior de la ventana gráfica */
-  top: 0; /* Pega la barra al borde superior */
-  left: 0; /* Pega la barra al borde izquierdo */
-  width: 100%; /* Hace que la barra ocupe todo el ancho disponible */
-  z-index: 100; /* Asegura que la barra esté por encima de otros elementos de la página */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Una sombra sutil para darle profundidad */
+  opacity: 0.85;
+  background: linear-gradient(to bottom, #020617, #021A37);
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px; 
 }
 
-/*
-  Estilos para el título dentro de la barra de navegación.
-*/
-.navbar h1 {
-  margin: 0; /* Elimina el margen por defecto del h1 */
-  font-size: 1.8em; /* Tamaño de la fuente del título */
-  font-weight: bold; /* Peso de la fuente */
+
+
+.navbar-title-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.6em;
+  font-weight: bold;
 }
 
-/*
-  Estilos opcionales para futuros enlaces de navegación (descomentar en HTML si se usan)
-.nav-links {
+.navbar-links {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
-  justify-content: center;
+  align-items: center;
 }
 
-.nav-links li {
-  margin: 0 15px;
+.navbar-links li {
+  margin-left: 45px; /* Espacio entre enlaces */
 }
 
-.nav-links a {
-  color: white;
+.navbar-links a {
+  color: #ecf0f1; /* Un blanco ligeramente más suave para los enlaces */
   text-decoration: none;
   font-size: 1em;
+  font-weight: 500;
+  padding: 8px 0; /* Padding para hacer el área de clic un poco más grande */
+  position: relative;
+  transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
-  text-decoration: underline;
+.navbar-links a::after { /* Efecto de subrayado sutil al pasar el ratón */
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #3498db; /* Color de acento para el subrayado */
+  transition: width 0.3s ease;
 }
-*/
+
+.navbar-links a:hover,
+.navbar-links a.active-link {
+  color: #ffffff;
+}
+
+.navbar-links a:hover::after,
+.navbar-links a.active-link::after {
+  width: 100%;
+}
+
+/* Botón de Menú Móvil (Hamburguesa) */
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.navbar-toggle svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* Estilos para el Menú Móvil (cuando está abierto) */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #34495e;
+    flex-direction: column;
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+
+  .navbar-links.mobile-menu-open {
+    display: flex;
+  }
+
+  .navbar-links li {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar-links a {
+    display: block;
+    padding: 15px 20px;
+    width: 100%;
+    border-bottom: 1px solid #2c3e50;
+  }
+  .navbar-links li:last-child a {
+    border-bottom: none;
+  }
+
+  .navbar-links a::after {
+    display: none;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+}
