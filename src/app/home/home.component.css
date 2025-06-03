@@ -522,6 +522,7 @@ app-mapa {
 }
 
 .svgIcon {
+  margin-right: 8px;
   width: 16px;
   /* fill: white; ya no es necesario aquí, se hereda de .Btn o se establece en .Btn-content */
 }
@@ -728,6 +729,18 @@ app-mapa {
   margin-bottom: 0; /* Aplicar a: <strong class="text-highlight">...</strong> */
   color: #e0ff58; /* Amarillo que tenías */
   font-size: 1.7rem;
+}
+
+
+.contact-butcurri {
+  display: inline-flex;
+  align-items: center;
+  color: #c9d1d9;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
 /* Aplicar a: <div class="contact-links"> */
