@@ -1,133 +1,132 @@
-                               /*                                            HEADER                 */
-.backdrop{
-    max-width: 750px;
-    margin: 0 auto;
-    padding: 120px 20px;
-    color: #c9d1d9; /* Texto principal claro */
-    font-family: "Onest Variable", system-ui, sans-serif; /* Tu fuente */
-    display: grid;
-    justify-content: center;
-    min-height: 50vh; /* O la altura que necesites */
-    overflow-x: hidden;
+/* --- HEADER --- */
+.backdrop {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 120px 20px;
+  color: #c9d1d9;
+  font-family: "Onest Variable", system-ui, sans-serif;
+  display: grid;
+  justify-content: center;
+  min-height: 50vh;
+  overflow-x: hidden;
+}
 
+.backdrop .header {
+  width: 750px;
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: 0.6fr 1fr;
+  position: relative;
+  height: 177px;
+  gap: 10px;
 }
-.backdrop .header{
-    width: 750px;
-    margin-bottom: 20px;
-    display: grid;
-    grid-template-columns: 0.6fr 1fr;
-    position: relative;  
-    height: 177px;
-    gap: 10px;
+
+.conjutitle {
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr 1fr;
+  gap: 8px;
+  padding: 0px;
 }
-.conjutitle{
-    display: grid;
-    grid-template-columns: 0.5fr 0.5fr 1fr;
-    gap: 8px;
-    padding: 0px;
-}
-.title{
+
+.title {
   font-size: 1.2rem;
   color: #2CC9FF;
   margin-bottom: 0;
-  font-family: "Onest Variable", system-ui, sans-serif; /* Tu fuente */
+  font-family: "Onest Variable", system-ui, sans-serif;
 }
-.image{
-    width: 266px;
-    height: 177px;
-    border-radius: 12px; 
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+
+.littleimage {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
 }
-.littleimage{
-    width: 12px;
-    height: 12px;
-}
-.limi{
+
+.limi {
   list-style-type: none;
 }
-.link{
-    font-size: 1rem;
-    color: #2CC9FF;
-    margin-bottom: 0;
-    font-family: "Onest Variable", system-ui, sans-serif;
+
+.link {
+  font-size: 1rem;
+  color: #2CC9FF;
+  margin-bottom: 0;
+  font-family: "Onest Variable", system-ui, sans-serif;
 }
 
 .info-fecha-container {
-  display: flex; 
+  display: flex;
   align-items: center;
   gap: 8px;
 }
-.littleimage {
-  width: 12px;
-  height: 12px; 
-  flex-shrink: 0; 
-}
 
 .texto-fecha {
-  margin: 0; 
+  margin: 0;
 }
-                               /*                                       DESC EMPRESA                */
-.fondo                            {
-    background-color: #0F172A;
-    color: #c9d1d9; 
-    padding: 20px 25px;
-    border-radius: 8px;
-    max-width: 750px;
-    width: 100%;
-    margin: 20px auto;
-    border: 1px solid #0F172A; 
-    box-sizing: border-box;
+
+/* --- DESCRIPCIÓN Y FUNCIONALIDADES --- */
+.fondo {
+  background-color: #0F172A;
+  color: #c9d1d9;
+  padding: 20px 25px;
+  border-radius: 8px;
+  max-width: 750px;
+  width: 100%;
+  margin: 20px auto;
+  border: 1px solid #0F172A;
+  box-sizing: border-box;
 }
-.text{
+
+.text {
   font-size: 1rem;
   line-height: 1.65;
   text-align: left;
   margin: 0;
 }
-.text1{
+
+.text1 {
   margin-top: 0;
   font-size: 1.1rem;
   line-height: 1.65;
   text-align: left;
   margin-bottom: 0;
 }
-.title1{
+
+.title1 {
   font-size: 1.6rem;
   color: #2CC9FF;
   margin-bottom: 20px;
   font-family: "Onest Variable", system-ui, sans-serif;
 }
-.indi{
-  margin: 0;
-  font-size: 1.1rem;
-  color: #2CC9FF;
-  font-family: "Onest Variable", system-ui, sans-serif;
+
+.funcionalidades-lista {
+  margin-bottom: 60px;
 }
 
 .info-linea {
-  height: 60px;
   display: flex;
-  margin-bottom: 0;
-  gap: 5px;
-}
-.info-linea .flex1{
-  color: #2CC9FF;
-  font-size: 1.1rem;
-  font-family: "Onest Variable", system-ui, sans-serif;
-}
-.info-linea .flex2{
-  color: #BCD1D9;
-  font-size: 1.1rem;
-  font-family: "Onest Variable", system-ui, sans-serif;
-}
-.limi1{
-  list-style-type: none;
-  margin-bottom: 0;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 1rem;
 }
 
-                               /*      Imagenes               */
+.info-linea .flex1 {
+  color: #2CC9FF;
+  font-weight: 600;
+  flex-shrink: 0;
+  width: 220px;
+  margin: 0;
+  text-align: left;
+  font-family: "Onest Variable", system-ui, sans-serif;
+}
+
+.info-linea .flex2 {
+  color: #BCD1D9;
+  margin: 0;
+  text-align: left;
+  line-height: 1.6;
+  font-family: "Onest Variable", system-ui, sans-serif;
+}
+
+/* --- IMÁGENES --- */
 .sizeimge {
   display: flex;
   flex-direction: column;
@@ -145,15 +144,16 @@
   gap: 10px;
   width: 100%;
 }
-.image {
 
+.image {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
-  border-radius: 8px; 
+  border-radius: 8px;
   object-fit: cover;
 }
 
+/* --- TABLA DE TECNOLOGÍAS --- */
 .tech-table {
   width: 100%;
   border-collapse: collapse;
@@ -163,18 +163,19 @@
   overflow: hidden;
 }
 
-.tech-table th{
- color: #2CC9FF;
+.tech-table th {
+  color: #2CC9FF;
   font-size: 1.1rem;
   min-width: 120px;
-  border: 1px solid #30363d
+  border: 1px solid #30363d;
+  padding: 12px 15px;
 }
+
 .tech-table td {
   padding: 12px 15px;
   text-align: left;
   border: 1px solid #30363d;
 }
-
 
 .tech-table td[data-label="Tecnología"] {
   text-align: center;
@@ -186,20 +187,92 @@
   color: #c9d1d9;
   line-height: 1.5;
 }
-.sinmar{
+
+.sinmar {
   margin: 0;
 }
 
+/* --- FOOTER --- */
+.fondo1 {
+  background-color: #0F172A;
+  color: #c9d1d9;
+  padding: 10px 15px;
+  border-radius: 8px;
+  max-width: 750px;
+  width: 100%;
+  margin: 20px auto;
+  border: 1px solid #0F172A;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contacto {
+  text-decoration: none;
+  color: white;
+  font-size: 0.9rem;
+}
+
+/* =============================================== */
+/* --- ESTILOS RESPONSIVE PARA PANTALLAS MEDIAS --- */
+/* =============================================== */
 @media screen and (max-width: 768px) {
+  .backdrop {
+    padding: 80px 15px;
+  }
+
+  .backdrop .header {
+    width: 100%;
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 20px;
+  }
+
+  .conjutitle {
+    grid-template-columns: 1fr;
+  }
+
+  .title {
+    font-size: 1.1rem;
+  }
+
+  .fondo {
+    padding: 15px 20px;
+  }
+
+  .title1 {
+    font-size: 1.4rem;
+  }
+
+  .info-linea {
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+  }
+
+  .info-linea .flex1 {
+    width: auto;
+  }
+
+  .double {
+    grid-template-columns: 1fr;
+  }
+
   .tech-table {
-    border: 0; 
+    border: 0;
     box-shadow: none;
     border-radius: 0;
   }
+  
+  .tech-table thead {
+      display: none;
+  }
+
   .tech-table tr {
     display: block;
     margin-bottom: 20px;
-    border-radius: 8px; 
+    border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     background-color: #161b22;
     overflow: hidden;
@@ -212,140 +285,77 @@
     position: relative;
     border-bottom: 1px solid #30363d;
   }
+  
+  .tech-table td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 15px;
+      font-weight: bold;
+      text-align: left;
+  }
 
+  .fondo1 {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 15px;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .fondo1 .contacto {
+    font-size: 0.85rem;
+  }
 }
 
-.fondo1{
-    background-color: #0F172A;
-    color: #c9d1d9; 
-    padding: 10px 15px;
-    border-radius: 8px;
-    max-width: 750px;
-    width: 100%;
-    margin: 20px auto;
-    border: 1px solid #0F172A; 
-    box-sizing: border-box;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 600px;
-    align-items: center;
-}
-
-.contacto{
-  text-decoration: none;
-  color: white;
-  font-size: 0.9rem;
-}
-
-/* Estilos Responsive Media Queries Agregados */
-
-@media screen and (max-width: 768px) {
-    .backdrop {
-        padding: 80px 15px; /* Padding ajustado */
-    }
-
-    .backdrop .header {
-        width: 100%; /* Ancho completo */
-        grid-template-columns: 1fr; /* Apila los elementos del header */
-        height: auto; /* Altura automática */
-        gap: 20px; /* Gap ajustado para elementos apilados */
-    }
-
-    .conjutitle {
-        grid-template-columns: 1fr; /* Apila los elementos del título */
-        /* text-align: center; Podrías centrar el texto si lo deseas */
-    }
-
-    .title {
-        font-size: 1.1rem; /* Reduce ligeramente el tamaño de fuente si es necesario */
-    }
-
-    .fondo {
-        padding: 15px 20px; /* Padding ajustado */
-    }
-
-    .title1 {
-        font-size: 1.4rem; /* Reduce ligeramente el tamaño de fuente */
-    }
-
-    .double {
-        grid-template-columns: 1fr; /* Apila imágenes en el contenedor .double */
-    }
-
-    .fondo1 {
-        grid-template-columns: 1fr; /* Apila elementos en .fondo1 */
-        gap: 20px; /* Reduce significativamente el gap */
-        padding: 15px;
-    }
-
-    .fondo1 .contacto {
-        font-size: 0.85rem; /* Ajusta el tamaño de fuente para pantallas más pequeñas */
-    }
-
-    .info-linea {
-        gap: 3px; /* Reduce el gap en info-linea */
-        /* Considera flex-direction: column; si los elementos necesitan apilarse */
-    }
-    .info-linea .flex1,
-    .info-linea .flex2 {
-        font-size: 1rem; /* Ajusta el tamaño de fuente */
-    }
-}
-
+/* ============================================== */
+/* --- ESTILOS RESPONSIVE PARA MÓVILES PEQUEÑOS --- */
+/* ============================================== */
 @media screen and (max-width: 480px) {
-    .backdrop {
-        padding: 40px 10px; /* Reduce más el padding para móviles pequeños */
-    }
+  .backdrop {
+    padding: 40px 10px;
+  }
 
-    .backdrop .header {
-        gap: 15px; /* Ajusta más el gap */
-    }
+  .backdrop .header {
+    gap: 15px;
+  }
 
-    .title {
-        font-size: 1rem; /* Reduce más el tamaño de fuente */
-    }
-    .link {
-        font-size: 0.9rem; /* Reduce tamaño de fuente para enlaces */
-    }
+  .title {
+    font-size: 1rem;
+  }
 
-    .fondo {
-        padding: 10px 15px; /* Padding ajustado para móviles */
-    }
+  .link {
+    font-size: 0.9rem;
+  }
 
-    .text, .text1 {
-        font-size: 0.9rem; /* Ajusta el tamaño del texto base */
-    }
+  .fondo {
+    padding: 10px 15px;
+  }
 
-    .title1 {
-        font-size: 1.2rem; /* Reduce más el tamaño de fuente */
-        margin-bottom: 15px;
-    }
+  .text, .text1 {
+    font-size: 0.9rem;
+  }
 
-    .indi {
-        font-size: 1rem; /* Ajusta tamaño de fuente */
-    }
+  .title1 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
 
-    .info-linea .flex1,
-    .info-linea .flex2 {
-        font-size: 0.9rem; /* Ajusta más el tamaño de fuente */
-    }
-    
-    .tech-table th { /* Ajustes adicionales para la tabla en móviles pequeños */
-        font-size: 1rem;
-    }
-    .tech-table td {
-        padding-left: 40%; /* Ajusta el padding para la pseudo-etiqueta en la tabla adaptable */
-        font-size: 0.9rem;
-    }
-    .tech-table td[data-label="Tecnología"] { /* Estilo específico para celdas de tecnología */
-        font-size: 0.95rem; /* Un poco más grande para destacar */
-    }
+  .info-linea .flex1,
+  .info-linea .flex2 {
+    font-size: 0.9rem;
+  }
+  
+  .tech-table td {
+    padding-left: 40%;
+    font-size: 0.9rem;
+  }
 
-    .fondo1 {
-        gap: 15px; /* Reduce más el gap */
-        padding: 10px;
-    }
-    .fondo1 .contacto {
-        font-size: 0.8rem; /* Tamaño de fuente final para contacto */
-    }
+  .fondo1 {
+    gap: 15px;
+    padding: 10px;
+  }
+
+  .fondo1 .contacto {
+    font-size: 0.8rem;
+  }
 }

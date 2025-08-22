@@ -1,189 +1,140 @@
-<section class="backdrop">
-  <header class="header">
-     <div *ngIf="proyectoActual; else noEncontradoOError" class="image">
-        <div *ngIf="proyectoActual.imagenPrincipal">
-      <img [src]="proyectoActual.imagenPrincipal" [alt]="'Imagen principal de ' + proyectoActual.titulo" class="image">
-    </div>
-    </div>
-    <div>
-      <div *ngIf="proyectoActual; else noEncontradoOError" class="title">
-      <h1>{{ proyectoActual.titulo }}</h1>
+<div *ngIf="proyectoActual; else noEncontradoOError">
+
+  <section class="backdrop">
+    <header class="header">
+      <div class="image">
+        <img [src]="proyectoActual.imagenPrincipal" [alt]="'Imagen principal de ' + proyectoActual.titulo" class="image">
       </div>
       <div>
-        <ul class="conjutitle">
-          <div>
-            <li class="limi">
-              <div *ngIf="proyectoActual" class="info-fecha-container"> <img src="assets/img_proyectos/calendar.png" alt="calendar" class="littleimage"
-                  onerror="this.onerror=null; this.src='https://placehold.co/300x300/0D1117/c9d1d9?text=Tu+Foto';">
-                <p *ngIf="proyectoActual.fecha" class="texto-fecha">{{ proyectoActual.fecha }}</p> 
+        <div class="title">
+          <h1>{{ proyectoActual.titulo }}</h1>
+        </div>
+        <div>
+          <ul class="conjutitle">
+            <li>
+              <div class="info-fecha-container">
+                <img src="assets/img_proyectos/calendar.png" alt="calendar" class="littleimage">
+                <p class="texto-fecha">{{ proyectoActual.fecha }}</p>
               </div>
             </li>
-          </div>
-          <div>
-            <li class="limi">
-              <div *ngIf="proyectoActual" class="info-fecha-container"> <img src="assets/img_proyectos/tag.png" alt="tag" class="littleimage"
-                  onerror="this.onerror=null; this.src='https://placehold.co/300x300/0D1117/c9d1d9?text=Tu+Foto';">
-                <p *ngIf="proyectoActual.desarrollo" class="texto-fecha">{{ proyectoActual.desarrollo }}</p> 
+            <li>
+              <div class="info-fecha-container">
+                <img src="assets/img_proyectos/tag.png" alt="tag" class="littleimage">
+                <p class="texto-fecha">{{ proyectoActual.desarrollo }}</p>
               </div>
             </li>
-          </div>
-          <div>
-            <li class="limi">
-              <div *ngIf="proyectoActual" class="info-fecha-container"> <img src="assets/img_proyectos/customer.png" alt="customer" class="littleimage"
-                  onerror="this.onerror=null; this.src='https://placehold.co/300x300/0D1117/c9d1d9?text=Tu+Foto';">
-                <p *ngIf="proyectoActual.tecnologias1" class="texto-fecha">{{ proyectoActual.tecnologias1 }}</p> 
+            <li>
+              <div class="info-fecha-container">
+                <img src="assets/img_proyectos/customer.png" alt="customer" class="littleimage">
+                <p class="texto-fecha">{{ proyectoActual.tecnologias1 }}</p>
               </div>
             </li>
-          </div>
-        </ul>
-        <div class="link">
-          <div *ngIf="proyectoActual; else noEncontradoOError">
+          </ul>
+          <div class="link">
+              <p *ngIf="proyectoActual.linkDemo" class="text">{{ proyectoActual.linkDemo }}</p>
               <p *ngIf="proyectoActual.advertencia" class="text">{{ proyectoActual.advertencia }}</p>
-            </div>
+          </div>
         </div>
       </div>
+    </header>
+
+    <br>
+
+    <div class="fondo">
+      <p *ngIf="proyectoActual.subtitulo" class="text1">{{ proyectoActual.subtitulo }}</p>
     </div>
-  </header>
-  <div class="fondo">
-    <div *ngIf="proyectoActual; else noEncontradoOError">
-    <p *ngIf="proyectoActual.subtitulo" class="text1">{{ proyectoActual.subtitulo }}</p>
-    </div>
-  </div>
-  <div>
-    <div *ngIf="proyectoActual; else noEncontradoOError">
+
+    <div>
       <p style="margin-bottom: 20px;" *ngIf="proyectoActual.descripcionCorta" class="text1">{{ proyectoActual.descripcionCorta }}</p>
-    </div>
-     <div *ngIf="proyectoActual; else noEncontradoOError">
-      <p style="margin-bottom: 20px;" *ngIf="proyectoActual.descripcionLarga" class="text1">{{ proyectoActual.descripcionLarga }}</p>
-    </div>
-    <div>
-      <h1 class="title1">Funcionalidades</h1>
-    </div>
-    <div *ngIf="proyectoActual; else noEncontradoOError">
+      <p style="margin-bottom: 20px;" *ngIf="proyectoActual.descripcionLarga" class="text1" [innerHTML]="descripcionLargaFormateada"></p>
+
+      <div>
+        <h1 class="title1">Funcionalidades</h1>
+      </div>
       <p style="margin-bottom: 20px;" *ngIf="proyectoActual.funcionalidades" class="text1">{{ proyectoActual.funcionalidades }}</p>
-    </div>
-    <div style="margin-bottom: 60px;">
-      <li class="limi1"> <div *ngIf="proyectoActual; else noEncontradoOError" class="info-linea">
-                          <p *ngIf="proyectoActual.funcion1" class="flex1">{{ proyectoActual.funcion1 }} <samp *ngIf="proyectoActual.funcion1_1" class="flex2">{{ proyectoActual.funcion1_1 }}</samp></p>
-                        </div>
-      </li>
-      <li class="limi1"> <div *ngIf="proyectoActual; else noEncontradoOError" class="info-linea">
-                          <p *ngIf="proyectoActual.funcion2" class="flex1">{{ proyectoActual.funcion2 }} <span *ngIf="proyectoActual.funcion2_1" class="flex2">{{ proyectoActual.funcion2_1 }}</span></p>                          
-                        </div>
-      </li>
-      <li class="limi1"> <div *ngIf="proyectoActual; else noEncontradoOError" class="info-linea">
-                          <p *ngIf="proyectoActual.funcion3" class="flex1">{{ proyectoActual.funcion3 }} <span *ngIf="proyectoActual.funcion3_1" class="flex2">{{ proyectoActual.funcion3_1 }}</span></p>                          
-                        </div>
-      </li>
-      <li class="limi1"> <div *ngIf="proyectoActual; else noEncontradoOError" class="info-linea">
-                          <p *ngIf="proyectoActual.funcion4" class="flex1">{{ proyectoActual.funcion4 }} <span *ngIf="proyectoActual.funcion4_1" class="flex2">{{ proyectoActual.funcion4_1 }}</span></p>                          
-                        </div>
-      </li>
-      <li class="limi1"> <div *ngIf="proyectoActual; else noEncontradoOError" class="info-linea">
-                          <p *ngIf="proyectoActual.funcion5" class="flex1">{{ proyectoActual.funcion5 }} <span *ngIf="proyectoActual.funcion5_1" class="flex2">{{ proyectoActual.funcion5_1 }}</span></p>                          
-                        </div>
-      </li>
-      <li class="limi1"> <div *ngIf="proyectoActual; else noEncontradoOError" class="info-linea">
-                          <p *ngIf="proyectoActual.funcion6" class="flex1">{{ proyectoActual.funcion6 }} <span *ngIf="proyectoActual.funcion6_1" class="flex2">{{ proyectoActual.funcion6_1 }}</span></p>                          
-                        </div>
-      </li>
-    </div>
-    <div class="sizeimge"> 
-      <div *ngIf="proyectoActual; else noEncontradoOError" class="imagen-grande-wrapper"> 
-      <img *ngIf="proyectoActual.imagen1" 
-         [src]="proyectoActual.imagen1" 
-         [alt]="'Imagen principal de ' + proyectoActual.titulo" 
-         class="image"> 
-      </div>
 
-      <div class="double"> 
-        <div *ngIf="proyectoActual; else noEncontradoOError"> 
-          <img *ngIf="proyectoActual.imagen2"  
-          [src]="proyectoActual.imagen2"  
-          [alt]="'Imagen secundaria 1 de ' + proyectoActual.titulo" 
-              class="image">
+      <div class="funcionalidades-lista">
+        <div *ngIf="proyectoActual.funcion1" class="info-linea">
+          <p class="flex1">{{ proyectoActual.funcion1 }}:</p>
+          <p class="flex2">{{ proyectoActual.funcion1_1 }}</p>
         </div>
-        <div *ngIf="proyectoActual; else noEncontradoOError">
-          <img *ngIf="proyectoActual.imagen3"  
-          [src]="proyectoActual.imagen3" 
-          [alt]="'Imagen secundaria 2 de ' + proyectoActual.titulo" 
-              class="image">
+        <div *ngIf="proyectoActual.funcion2" class="info-linea">
+          <p class="flex1">{{ proyectoActual.funcion2 }}:</p>
+          <p class="flex2">{{ proyectoActual.funcion2_1 }}</p>
+        </div>
+        <div *ngIf="proyectoActual.funcion3" class="info-linea">
+          <p class="flex1">{{ proyectoActual.funcion3 }}:</p>
+          <p class="flex2">{{ proyectoActual.funcion3_1 }}</p>
+        </div>
+        <div *ngIf="proyectoActual.funcion4" class="info-linea">
+          <p class="flex1">{{ proyectoActual.funcion4 }}:</p>
+          <p class="flex2">{{ proyectoActual.funcion4_1 }}</p>
+        </div>
+        <div *ngIf="proyectoActual.funcion5" class="info-linea">
+          <p class="flex1">{{ proyectoActual.funcion5 }}:</p>
+          <p class="flex2">{{ proyectoActual.funcion5_1 }}</p>
+        </div>
+        <div *ngIf="proyectoActual.funcion6" class="info-linea">
+          <p class="flex1">{{ proyectoActual.funcion6 }}:</p>
+          <p class="flex2">{{ proyectoActual.funcion6_1 }}</p>
         </div>
       </div>
+
+      <div class="sizeimge">
+        <div class="imagen-grande-wrapper">
+          <img *ngIf="proyectoActual.imagen1" [src]="proyectoActual.imagen1" [alt]="'Imagen 1 de ' + proyectoActual.titulo" class="image">
+        </div>
+        <div class="double">
+          <img *ngIf="proyectoActual.imagen2" [src]="proyectoActual.imagen2" [alt]="'Imagen 2 de ' + proyectoActual.titulo" class="image">
+          <img *ngIf="proyectoActual.imagen3" [src]="proyectoActual.imagen3" [alt]="'Imagen 3 de ' + proyectoActual.titulo" class="image">
+        </div>
+      </div>
+      
+      <div>
+        <h1 class="title1">Tecnologías</h1>
+      </div>
+      <table class="tech-table">
+        <thead>
+          <tr>
+            <th>Tecnología</th>
+            <th>Uso / Implementación</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="proyectoActual.tectno1">
+            <td data-label="Tecnología"><p>{{ proyectoActual.tectno1 }}</p></td>
+            <td data-label="Uso / Implementación"><p class="sinmar">{{ proyectoActual.tectno1_1 }}</p></td>
+          </tr>
+          <tr *ngIf="proyectoActual.tectno2">
+            <td data-label="Tecnología"><p>{{ proyectoActual.tectno2 }}</p></td>
+            <td data-label="Uso / Implementación"><p class="sinmar">{{ proyectoActual.tectno2_1 }}</p></td>
+          </tr>
+          <tr *ngIf="proyectoActual.tectno3">
+            <td data-label="Tecnología"><p>{{ proyectoActual.tectno3 }}</p></td>
+            <td data-label="Uso / Implementación"><p class="sinmar">{{ proyectoActual.tectno3_1 }}</p></td>
+          </tr>
+          <tr *ngIf="proyectoActual.tectno4">
+            <td data-label="Tecnología"><p>{{ proyectoActual.tectno4 }}</p></td>
+            <td data-label="Uso / Implementación"><p class="sinmar">{{ proyectoActual.tectno4_1 }}</p></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <div>
-      <h1 class="title1">Tecnologías</h1>
-    </div>
-    <table class="tech-table">
-      <thead>
-        <tr>
-          <th>Tecnología</th>
-          <th>Uso / Implementación</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td data-label="Tecnología"><div *ngIf="proyectoActual; else noEncontradoOError" >
-                                         <p *ngIf="proyectoActual.tectno1">{{ proyectoActual.tectno1 }}</p>                          
-                                      </div>
-          </td>
-          <td data-label="Uso / Implementación"><div *ngIf="proyectoActual; else noEncontradoOError">
-                                                  <p class="sinmar" *ngIf="proyectoActual.tectno1_1">{{ proyectoActual.tectno1_1 }}</p>                          
-                                                </div>
-          </td>
-        </tr>
-        <tr>
-          <td data-label="Tecnología"><div *ngIf="proyectoActual; else noEncontradoOError">
-                                         <p *ngIf="proyectoActual.tectno2">{{ proyectoActual.tectno2 }}</p>                          
-                                      </div>
-          </td>
-          <td data-label="Uso / Implementación"><div *ngIf="proyectoActual; else noEncontradoOError">
-                                                  <p class="sinmar" *ngIf="proyectoActual.tectno2_1">{{ proyectoActual.tectno2_1 }}</p>                          
-                                                </div>
-          </td>
-        </tr>
-        <tr>
-          <td data-label="Tecnología"><div *ngIf="proyectoActual; else noEncontradoOError">
-                                         <p  *ngIf="proyectoActual.tectno3">{{ proyectoActual.tectno3 }}</p>                          
-                                      </div>
-          </td>
-          <td data-label="Uso / Implementación"><div *ngIf="proyectoActual; else noEncontradoOError">
-                                                  <p class="sinmar" *ngIf="proyectoActual.tectno3_1">{{ proyectoActual.tectno3_1 }}</p>
-                                                </div>
-          </td>
-        </tr>
-        <tr>
-          <td data-label="Tecnología"><div *ngIf="proyectoActual; else noEncontradoOError">
-                                         <p *ngIf="proyectoActual.tectno4">{{ proyectoActual.tectno4 }}</p>                          
-                                      </div>
-          </td>
-          <td data-label="Uso / Implementación"><div *ngIf="proyectoActual; else noEncontradoOError">
-                                                  <p class="sinmar" *ngIf="proyectoActual.tectno4_1">{{ proyectoActual.tectno4_1 }}</p>                          
-                                                </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  </section>
 
-
-
-<footer class="fondo1">
-<span>© 2025</span>
-<a class="contacto" href="mailto:yesanabria2@poligran.edu.co">Contacto</a>
-</footer>
+  <footer class="fondo1">
+    <span>© 2025</span>
+    <a class="contacto" href="mailto:yesanabria2@poligran.edu.co">Contacto</a>
+  </footer>
+  <a routerLink="/" class="volver-link">Volver a la Página Principal</a>
+</div>
 
 <ng-template #noEncontradoOError>
-    <div *ngIf="errorCarga" class="mensaje-error">
-      <h2>Error al Cargar el Proyecto</h2>
-      <p>{{ errorCarga }}</p>
-    </div>
-    <div *ngIf="!proyectoActual && !errorCarga" class="mensaje-cargando">
-        <p>Cargando detalles del proyecto...</p>
-    </div>
-  </ng-template>
-  <a routerLink="/" class="volver-link">Volver a la Página Principal</a>
-</section>
-
-
-
+  <div *ngIf="errorCarga" class="mensaje-error">
+    <h2>Error al Cargar el Proyecto</h2>
+    <p>{{ errorCarga }}</p>
+  </div>
+  <div *ngIf="!proyectoActual && !errorCarga" class="mensaje-cargando">
+    <p>Cargando detalles del proyecto...</p>
+  </div>
+</ng-template>

@@ -3,6 +3,18 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';   
 import { NavbarComponent } from '../navbar/navbar.component'; 
 import { MapaComponent } from '../mapa/mapa.component';       
+import { HttpClient } from '@angular/common/http';
+
+// Interfaz para definir la estructura de datos de un proyecto. ¡Buena práctica!
+export interface IProyecto {
+  id: string;
+  desarrollo: string;
+  titulo: string;
+  descripcionCorta: string;
+  imagenPrincipal: string;
+  tecnologias1: string;
+  tags: string[]; // Se usará para guardar las tecnologías como un array
+}
 
 @Component({
   selector: 'app-home',
@@ -17,6 +29,7 @@ import { MapaComponent } from '../mapa/mapa.component';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
+  // --- INICIO: CÓDIGO EXISTENTE (SIN MODIFICAR) ---
   // Estados para la animación de introducción
   showIntroOverlay: boolean = true;
   showAnimatedTitle: boolean = true; 
@@ -32,13 +45,42 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   mostrarBotonPantallaPC: boolean = false; 
   mostrarModalNavegacion: boolean = false; 
   private secuenciaPuertaIniciada: boolean = false;
+  // --- FIN: CÓDIGO EXISTENTE (SIN MODIFICAR) ---
 
-  constructor(private cdr: ChangeDetectorRef) {}
+
+  // --- INICIO: CÓDIGO AÑADIDO PARA PROYECTOS ---
+  
+  // 1. Variable pública para almacenar los proyectos cargados del JSON.
+  public proyectos: IProyecto[] = [];
+
+  // 2. Inyectamos HttpClient en el constructor para poder hacer peticiones HTTP.
+  constructor(private cdr: ChangeDetectorRef, private http: HttpClient) {}
 
   ngOnInit(): void {
     this.startIntroAnimationSequence();
+    this.cargarProyectos(); // 3. Llamamos al nuevo método al iniciar el componente.
   }
 
+  // 4. Nuevo método para obtener y procesar los datos de los proyectos.
+  cargarProyectos(): void {
+    // La ruta debe apuntar a donde guardaste tu archivo JSON.
+    const dataUrl = 'assets/data/proyectos.json'; 
+    
+    this.http.get<IProyecto[]>(dataUrl).subscribe(data => {
+      // Usamos .map() para transformar cada proyecto que llega del JSON.
+      this.proyectos = data.map(proyecto => {
+        // Convertimos el string "Python, HTML, CSS" en un array ["Python", "HTML", "CSS"]
+        // Esto es ideal para luego usar *ngFor en la plantilla HTML.
+        proyecto.tags = proyecto.tecnologias1.split(',').map(tag => tag.trim());
+        return proyecto;
+      });
+      console.log('Proyectos cargados desde JSON:', this.proyectos);
+    });
+  }
+  // --- FIN: CÓDIGO AÑADIDO PARA PROYECTOS ---
+
+
+  // --- INICIO: CÓDIGO EXISTENTE (SIN MODIFICAR) ---
   ngAfterViewInit(): void {
   }
 
@@ -55,8 +97,8 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
           this.isOverlayFadingOut = true;
           this.cdr.detectChanges();
           setTimeout(() => {
-            this.showIntroOverlay = false;            
-            this.mostrarJuego = true;      
+            this.showIntroOverlay = false;          
+            this.mostrarJuego = true;    
             this.cdr.detectChanges();
             console.log("HomeComponent: Intro finalizada, mostrando juego.");
           }, 700); 
@@ -142,7 +184,6 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     
     this.cdr.detectChanges();
 
-    // 4. Lógica de scroll
     const seccion = document.getElementById(idSeccion);
     if (seccion) {
       const navbarElement = document.querySelector('app-navbar'); 
@@ -161,4 +202,5 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnDestroy(): void {
     clearTimeout(this.titleDisappearTimer);
   }
+  // --- FIN: CÓDIGO EXISTENTE (SIN MODIFICAR) ---
 }

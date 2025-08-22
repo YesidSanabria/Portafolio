@@ -129,33 +129,33 @@
 
 
   <section id="proyectos" class="sobremi">
-    <div class="section-proyectos">
-      <h1 class="titulop">Mis Proyectos</h1>
-      <div class="project-cards-container">
-        <div class="project-card-link" [routerLink]="['/proyecto', 'GeneracionXXI']">
-          <div class="project-card">
-            <div class="project-card-image-wrapper">
-              <img src="assets/img_proyectos/geracionp.jpg" alt="Generacion XXI" class="project-image">
-              <div class="project-card-category frontend">Frontend</div>
-            </div>
-            <div class="project-card-content">
-              <h3 class="project-title">Generacion XXI</h3>
-              <p class="project-description">
-                Plataforma Web para el control de datos personales generacion XXI, Claro Colombia.
-              </p>
-              <div class="project-tags">
-                <span class="tag">Python</span>
-                <span class="tag">HTML</span>
-                <span class="tag">CSS</span>
-                <span class="tag">FireBase</span>
-                <span class="tag">Djando</span>
-              </div>
+  <div class="section-proyectos">
+    <h1 class="titulop">Mis Proyectos</h1>
+    
+    <div class="project-cards-container">
+      
+      <div *ngFor="let proyecto of proyectos" class="project-card-link" [routerLink]="['/proyecto', proyecto.id]">
+        <div class="project-card">
+          <div class="project-card-image-wrapper">
+            <img [src]="proyecto.imagenPrincipal" [alt]="proyecto.titulo" class="project-image">
+            <div class="project-card-category frontend">{{ proyecto.desarrollo }}</div>
+          </div>
+          <div class="project-card-content">
+            <h3 class="project-title">{{ proyecto.titulo }}</h3>
+            <p class="project-description">
+              {{ proyecto.descripcionCorta }}
+            </p>
+            <div class="project-tags">
+              <span *ngFor="let tag of proyecto.tags" class="tag">{{ tag }}</span>
             </div>
           </div>
         </div>
       </div>
+
     </div>
-  </section>
+  </div>
+</section>
+
 
   <section id="tecnologias" class="sobremi">
     <div class="section-tecnologia">
