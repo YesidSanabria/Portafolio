@@ -1,22 +1,16 @@
-/* src/styles.css */
 body {
-  margin: 0; /* Es buena práctica resetear el margen del body */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define una fuente base para toda la página */
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-  /* --- FONDO DEGRADADO PARA TODA LA PÁGINA --- */
-  /* Ejemplo: Degradado sutil de arriba (gris muy claro) hacia abajo (blanco) */
   background: linear-gradient(to bottom, #021A37, #020617);
 
-  /* Asegúrate de que el degradado cubra toda la altura, incluso si el contenido es corto */
   min-height: 100vh; 
 
-  /* Para que el degradado no se repita si el contenido es más largo que la ventana */
-  background-attachment: fixed; /* Opcional: hace que el degradado sea fijo durante el scroll */
+  background-attachment: fixed;
   background-repeat: no-repeat;
-  background-size: cover; /* Asegura que el degradado cubra, aunque esto es más relevante para imágenes */
+  background-size: cover;
 }
 
-/* Opcional: Si quieres que el scroll sea más suave en toda la página */
 html {
   scroll-behavior: smooth;
 }

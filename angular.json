@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "mi-portafolio-juego-base": {
+    "mi-portafolio": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -57,10 +57,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "mi-portafolio-juego-base:build:production"
+              "buildTarget": "mi-portafolio:build:production"
             },
             "development": {
-              "buildTarget": "mi-portafolio-juego-base:build:development"
+              "buildTarget": "mi-portafolio:build:development"
             }
           },
           "defaultConfiguration": "development"
