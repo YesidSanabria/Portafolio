@@ -11,6 +11,7 @@ export interface Proyecto { // <<--- ¡ASEGÚRATE DE QUE 'export' ESTÉ AQUÍ!
   desarrollo: string;
   tecnologias1: string;
   titulo: string;
+  subtitulo_proyecto: string;
   subtitulo?: string;
   descripcionCorta: string;
   descripcionLarga: string;

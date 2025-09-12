@@ -2,12 +2,12 @@
 
   <section class="backdrop">
     <header class="header">
-      <div class="image">
+      <div class="aaa">
         <img [src]="proyectoActual.imagenPrincipal" [alt]="'Imagen principal de ' + proyectoActual.titulo" class="image">
       </div>
       <div>
         <div class="title">
-          <h1>{{ proyectoActual.titulo }}</h1>
+          <h1 class="tlih1">{{ proyectoActual.titulo }}</h1>
         </div>
         <div>
           <ul class="conjutitle">
@@ -30,14 +30,18 @@
               </div>
             </li>
           </ul>
+          <br>
           <div class="link">
-              <p *ngIf="proyectoActual.linkDemo" class="text">{{ proyectoActual.linkDemo }}</p>
+              <a [href]="proyectoActual.linkDemo" *ngIf="proyectoActual.linkDemo" class="text" target="_blank" rel="noopener noreferrer">
+                Ver Proyecto
+              </a>
               <p *ngIf="proyectoActual.advertencia" class="text">{{ proyectoActual.advertencia }}</p>
           </div>
         </div>
       </div>
     </header>
 
+    <br>
     <br>
 
     <div class="fondo">
@@ -124,9 +128,14 @@
 
   <footer class="fondo1">
     <span>© 2025</span>
-    <a class="contacto" href="mailto:yesanabria2@poligran.edu.co">Contacto</a>
+    <a routerLink="/" class="link">Volver a la Página Principal</a>
+    <a href="mailto:yesanabria2@poligran.edu.co" class="contact-button email">
+            <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="contact-icon"><path fill="currentColor" d="M48 64C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm0 48h416c8.8 0 16 7.2 16 16v41.4c-21.9 18.5-53.2 44.1-73.2 61.4L320 304.3 256 352l-64-47.7-66.8-49.5c-20-17.3-51.3-42.9-73.2-61.4V128c0-8.8 7.2-16 16-16zm0 240v-2.5c0-4.6 1.6-9 4.5-12.3L160 256l-64 48v96c0 8.8 7.2 16 16 16h41.4c-21.9-18.5-53.2-44.1-73.2-61.4zM464 400c8.8 0 16-7.2 16-16V208l-64-48 112.5 82.3c2.9 3.3 4.5 7.8 4.5 12.3V400c0-8.8-7.2-16-16-16H464z"></path></svg>
+            Contacto: yesanabria2
+          </a>
+    
   </footer>
-  <a routerLink="/" class="volver-link">Volver a la Página Principal</a>
+  
 </div>
 
 <ng-template #noEncontradoOError>
